@@ -11,4 +11,8 @@ class Actress
     photos.map{|p| p.url}[rand(4)]
   end
 
+  def photos_urls
+    photos.map{|p| p.url}
+  end
+
 end

@@ -20,6 +20,7 @@ class ActressesController < ApplicationController
 
   def show_photos
     @actress = Actress.where(:name=>params[:name]).first
+    @sidebar = true
   end
 
   # GET /actresses/new
