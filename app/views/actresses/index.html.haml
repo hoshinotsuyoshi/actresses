@@ -1,0 +1,23 @@
+%h1 Listing actresses
+
+%table
+  %tr
+    %th Name
+    %th Text
+    %th Display
+    %th
+    %th
+    %th
+
+  - @actresses.each do |actress|
+    %tr
+      %td= actress.name
+      %td= actress.text
+      %td= actress.display
+      %td= link_to 'Show', actress
+      %td= link_to 'Edit', edit_actress_path(actress)
+      %td= link_to 'Destroy', actress, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Actress', new_actress_path

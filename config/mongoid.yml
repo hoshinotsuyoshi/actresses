@@ -1,0 +1,31 @@
+development:
+  sessions:
+    default:
+      database: <%= ENV['MONGOHQ_DB_URL'].split('/').last %>
+      username: <%= ENV['MONGOHQ_DB_URL'].split(':')[1].split("/").last %>
+      password: <%= ENV['MONGOHQ_DB_URL'].split(':')[2].split('@').first %>
+      hosts:
+        - dharma.mongohq.com:10082
+      options:
+  options:
+test:
+  sessions:
+    default:
+      database: ero_rails_replacer_db_dev_test
+      hosts:
+        - localhost:27017
+      options:
+        consistency: :strong
+        # In the test environment we lower the retries and retry interval to
+        # low amounts for fast failures.
+        max_retries: 1
+        retry_interval: 0
+production:
+  sessions:
+    default:
+      database: <%= ENV['MONGOHQ_DB_URL'].split('/').last %>
+      username: <%= ENV['MONGOHQ_DB_URL'].split(':')[1].split("/").last %>
+      password: <%= ENV['MONGOHQ_DB_URL'].split(':')[2].split('@').first %>
+      hosts:
+        - dharma.mongohq.com:10082
+      options:

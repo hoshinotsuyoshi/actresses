@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @actress.name
+%p
+  %b Text:
+  = @actress.text
+%p
+  %b Display:
+  = @actress.display
+
+= link_to 'Edit', edit_actress_path(@actress)
+\|
+= link_to 'Back', actresses_path

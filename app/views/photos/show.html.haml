@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Path:
+  = @photo.path
+%p
+  %b Url:
+  = @photo.url
+%p
+  %b Secure url:
+  = @photo.secure_url
+
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path
