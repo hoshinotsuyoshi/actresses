@@ -27,5 +27,7 @@ module EroRailsReplacerDbDev
 
     # for heroku
     config.assets.initialize_on_precompile = false
+
+    config.encoding = "utf-8"
   end
 end

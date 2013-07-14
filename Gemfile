@@ -61,6 +61,7 @@ gem 'eventmachine'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 
 group :development do
+  gem 'debugger'
   gem 'thin'
   gem 'rb-readline', '~> 0.4.2'
   gem 'shotgun'

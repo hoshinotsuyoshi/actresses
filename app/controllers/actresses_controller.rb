@@ -1,4 +1,6 @@
+# coding: utf-8
 class ActressesController < ApplicationController
+  require 'kconv'
   before_action :set_actress, only: [:show, :edit, :update, :destroy]
 
   # GET /actresses
@@ -14,6 +16,10 @@ class ActressesController < ApplicationController
   # GET /actresses/1
   # GET /actresses/1.json
   def show
+  end
+
+  def show_photos
+    @actress = Actress.where(:name=>params[:name]).first
   end
 
   # GET /actresses/new

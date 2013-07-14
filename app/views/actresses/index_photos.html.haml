@@ -10,6 +10,6 @@
       - if @a
         %li.span2
           %a.thumbnail{:href=>"/actress/#{@a.name}"}
-            %img{:src=>"#{@a.thumbnail_rand}",:onerror=>"this.src='/assets/image/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a.name}",:title=>"#{@a.name}"}
+            %img{:src=>"#{@a.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a.name}",:title=>"#{@a.name}"}
           %a{:href=>"/actress/#{@a.name}"}
             = @a.name + " #{@a.photos.size.to_s}枚"
