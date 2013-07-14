@@ -7,6 +7,10 @@ class ActressesController < ApplicationController
     @actresses = Actress.all
   end
 
+  def index_photos
+    @actresses = Actress.all
+  end
+
   # GET /actresses/1
   # GET /actresses/1.json
   def show
