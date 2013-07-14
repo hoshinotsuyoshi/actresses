@@ -7,6 +7,9 @@ gem 'rails', '4.0.0'
 # for heroku,rails4
 gem 'rails_12factor'
 
+# for heroku
+gem 'heroku'
+
 # test
 gem 'rspec-rails', :group => [:test, :development]
 group :test do
