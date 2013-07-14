@@ -23,6 +23,10 @@ class ActressesController < ApplicationController
     @sidebar = true
   end
 
+  def show_a_photo
+    @actress = Actress.where(:name=>params[:name]).first
+  end
+
   # GET /actresses/new
   def new
     @actress = Actress.new

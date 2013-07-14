@@ -8,8 +8,13 @@ EroRailsReplacerDbDev::Application.routes.draw do
   #top page
   root :to=>"actresses#index_photos"
 
+  #photo page
+  get '/actress/image/:name/:page' => 'actresses#show_a_photo'
+
   #get '/actress/:name' => 'actresses#show_photos'
   get '/actress/:name' => 'actresses#show_photos'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
