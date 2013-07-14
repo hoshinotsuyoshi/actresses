@@ -30,13 +30,21 @@
     .container-fluid
 
       .row-fluid
+        - require 'uri'
         .span3
-          .well.sidebar-nav
+          %div.well.sidebar-nav
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+            %ul.nav.nav-list
+            %ul.nav.nav-list
+              -# %li.nav-header publishes
+              - (0..2).each do |i|
+                .amazlink-box{:style=>"text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;"}
+                  .amazlink-list{:style=>"clear: both;"}
+                    .amazlink-image{:style=>"float:left;margin:0px 12px 1px 0px;"}
+                      -# FIXME
+                      -# if affi(@actress).items[i]
+                        %a{:href=>"#{affi(@actress).items[i].get('DetailPageURL')}",:target=>"_blank",:rel=>"nofollow",:onclick=>"javascript:_gaq.push(['_trackPageview',('/outbound/' + this.href.replace(/https?:\\/\\//,''))]);"}
+                          %img{:src=>"#{affi(@actress).items[i].get_element('LargeImage').get('URL') rescue nil}",:style=>"border: none;"}
         .span9
           = bootstrap_flash
           = yield
