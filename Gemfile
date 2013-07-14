@@ -66,4 +66,10 @@ group :development do
   gem 'shotgun'
 end
 
+# use haml
 gem 'haml-rails'
+
+# use bootstrap
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
