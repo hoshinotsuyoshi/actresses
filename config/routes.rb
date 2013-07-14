@@ -9,7 +9,7 @@ EroRailsReplacerDbDev::Application.routes.draw do
   root :to=>"actresses#index_photos"
 
   #photo page
-  get '/actress/image/:name/:page' => 'actresses#show_a_photo'
+  get '/actress/image/:name' => 'actresses#show_a_photo'
 
   #get '/actress/:name' => 'actresses#show_photos'
   get '/actress/:name' => 'actresses#show_photos'

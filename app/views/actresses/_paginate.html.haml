@@ -1,0 +1,20 @@
+-# paginate
+.pagination.pagination-centered
+  %ul
+    - @page = params[:page].to_i
+    %li.prev{:class=>("disabled" if @page.zero? )}
+      - if @page.zero?
+        %a{:href=>"#"}Prev
+      - else
+        %a{:href=>"/actress/#{@actress.name}?page=#{@page-1}"}Prev
+
+    - @actress.page_size.times do |p|
+      %li.page{:class=>("disabled" if p == @page)}
+        %a{:href=>"/actress/#{@actress.name}?page=#{p}"}=p + 1
+
+    %li.prev{:class=>("disabled" if @actress.page_size - 1 == @page )}
+      - if @actress.page_size - 1 == @page
+        %a{:href=>"#"}Next
+      - else 
+        %a{:href=>"/actress/#{@actress.name}?page=#{@page+1}"}Next
+

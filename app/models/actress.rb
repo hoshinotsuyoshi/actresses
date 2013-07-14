@@ -15,4 +15,8 @@ class Actress
     photos.map{|p| p.url}
   end
 
+  def page_size
+    (photos.size.to_f / 8 ).ceil
+  end
+
 end

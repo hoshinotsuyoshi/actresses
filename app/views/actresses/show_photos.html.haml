@@ -31,7 +31,7 @@
               %img{:src=>@actress.photos_urls[i],:alt=>"#{@actress.name}",:width=>"40%"}
 
 -# paginate
-  = partial :haml,:paginate
+= render :partial => "paginate"
 
 -# actress list
   .well

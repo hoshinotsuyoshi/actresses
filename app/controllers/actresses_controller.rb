@@ -25,6 +25,7 @@ class ActressesController < ApplicationController
 
   def show_a_photo
     @actress = Actress.where(:name=>params[:name]).first
+    @page    = params[:page].to_i
   end
 
   # GET /actresses/new
