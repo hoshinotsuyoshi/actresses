@@ -35,6 +35,24 @@ class ActressesController < ApplicationController
     @actress = Actress.new
   end
 
+  def admin
+    @actresses = Actress.all
+  end
+
+  def admin_post
+    redirect '/admi' if params[:name].blank?
+    actress = params[:name]
+    array = [params[:url01],params[:url02],params[:url03],params[:url04],params[:url05],params[:url06],params[:url07],params[:url08],params[:url09],params[:url10]].select{|e| !e.blank?}
+    while !array.empty? do
+      Resque.enqueue Demo::ActressJob,[actress,array.shift]
+    end
+    redirect '/admi' 
+  end
+
+  def similar
+    @actresses = Actress.all
+  end
+
   # GET /actresses/1/edit
   def edit
   end

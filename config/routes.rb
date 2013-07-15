@@ -14,6 +14,12 @@ EroRailsReplacerDbDev::Application.routes.draw do
   #get '/actress/:name' => 'actresses#show_photos'
   get '/actress/:name' => 'actresses#show_photos'
 
+  #get '/admi' => 'actresses#admin'
+  get '/admi' => 'actresses#admin'
+
+  post '/admi' => 'actresses#admin_post'
+
+  post '/regist_similar' => 'actresses#similar'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
