@@ -62,10 +62,11 @@ gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 
 group :development do
   gem 'debugger'
-  gem 'thin'
   gem 'rb-readline', '~> 0.4.2'
   gem 'shotgun'
 end
+
+gem 'thin'
 
 # use haml
 gem 'haml-rails'
@@ -78,6 +79,7 @@ gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 
 gem 'amazon-ecs'
 
 # resque and worker-daemon
-# gem 'resque', :git => 'git://github.com/resque/resque.git', :ref => 'c5ea484d7eca45d88e909d0d673f796fc52af435'
+gem 'resque', :git => 'git://github.com/resque/resque.git'
+#gem 'resque-web' , :require => 'resque-web'
 gem 'daemon-spawn', :require => 'daemon_spawn'
 
