@@ -7,6 +7,12 @@ class Actress
   has_many :photos 
   has_and_belongs_to_many :similar_actresses
 
+  #similar
+  ######
+  field :actress_id, type: Actress
+  has_many :similars, :class_name => 'Actress', :foreign_key => :actress_id    
+  ######
+
   def thumbnail_rand
     photos.map{|p| p.url}[rand(4)]
   end
