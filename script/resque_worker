@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('../../config/application', __FILE__)
+Rails.application.require_environment!
+
+#redis
+require 'uri'
+require 'resque'
+ENV["REDISTOGO_URL"] ||= "redis://redistogo:1e9420251dc0258c105fed98242e19e0@crestfish.redistogo.com:9305/"
+uri = URI.parse(ENV["REDISTOGO_URL"])
+Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password, :thread_safe => true)
+
+class ResqueWorkerDaemon < DaemonSpawn::Base
+  def start(args)
+    @worker = Resque::Worker.new('default')
+    @worker.verbose = true
+    @worker.work
+  end
+
+  def stop
+    @worker.try(:shutdown)
+  end
+end
+
+ResqueWorkerDaemon.spawn!({
+  :working_dir => Rails.root,
+  :pid_file => File.join(Rails.root, 'tmp', 'pids', 'resque_worker.pid'),
+  :log_file => File.join(Rails.root, 'log', 'resque_worker.log'),
+  :sync_log => true,
+  :singleton => true
+})

@@ -76,3 +76,8 @@ gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 
 
 # amazon-associate
 gem 'amazon-ecs'
+
+# resque and worker-daemon
+# gem 'resque', :git => 'git://github.com/resque/resque.git', :ref => 'c5ea484d7eca45d88e909d0d673f796fc52af435'
+gem 'daemon-spawn', :require => 'daemon_spawn'
+
