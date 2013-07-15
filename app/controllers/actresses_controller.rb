@@ -19,11 +19,13 @@ class ActressesController < ApplicationController
   end
 
   def show_photos
+    @actresses = Actress.all
     @actress = Actress.where(:name=>params[:name]).first
     @sidebar = true
   end
 
   def show_a_photo
+    @actresses = Actress.all
     @actress = Actress.where(:name=>params[:name]).first
     @page    = params[:page].to_i
   end

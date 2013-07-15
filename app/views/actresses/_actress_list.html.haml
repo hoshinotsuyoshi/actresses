@@ -1,0 +1,36 @@
+-# coding: utf-8
+- if false #!@similars.empty?
+  %h3 
+    = "#{@actress} に似ている女優"
+  - @similars = @similars.sort_by{rand}
+  -# トップページなら全部、それ以外なら6個
+  - @lis = request.path=="/" ? 6  : 2
+  - @uls = request.path=="/" ? @similars.size / 6  : 1
+  - @uls.times do |i|
+    %ul.thumbnails
+      - (i*@lis).upto(i*@lis+@lis-1) do |n|
+        - @a = @similars[n]
+        - if @a
+          %li.span2
+            %a.thumbnail{:href=>"/actress/#{@a}"}
+              %img{:src=>"#{thumbnail_to_actress @a}",:onerror=>"this.src='/asset/image/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a}",:title=>"#{@a}"}
+            %a{:href=>"/actress/#{@a}"}
+              = @a + " #{photo_size_actress @a}枚"
+
+%h3 おすすめ女優
+- @actresses = @actresses.sort_by{rand}
+-# トップページなら全部、それ以外なら6個
+- @lis = request.path=="/" ? 6  : 2
+- @uls = request.path=="/" ? @actresses.size / 6  : 1
+- @uls.times do |i|
+  %ul.thumbnails
+    - (i*@lis).upto(i*@lis+@lis-1) do |n|
+      - @a = @actresses[n]
+      - if @a
+        %li.span2
+          %a.thumbnail{:href=>"/actress/#{@a.name}"}
+            %img{:src=>"#{@a.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a.name}",:title=>"#{@a.name}"}
+          %a{:href=>"/actress/#{@a.name}"}
+            = @a.name + " #{@a.photos.size.to_s}枚"
+
+

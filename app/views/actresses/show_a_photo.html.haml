@@ -8,5 +8,5 @@
       %img{:src=>@actress.photos[params[:page].to_i].url}
 
 -# actress list
-  .well
-    = partial :haml,:actress_list
+.well
+  = render :partial => "actress_list"
