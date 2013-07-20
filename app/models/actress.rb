@@ -1,17 +1,23 @@
 # coding: utf-8
+require 'mongoid' #←workerが必要
 class Actress
   include Mongoid::Document
   field :name, type: String
   field :text, type: String
   field :display, :type => Boolean , :default=>true
   has_many :photos 
-  has_and_belongs_to_many :similar_actresses
+  ## has_and_belongs_to_many :similar_actresses
 
   #similar
-  ######
-  field :actress_id, type: Actress
-  has_many :similars, :class_name => 'Actress', :foreign_key => :actress_id    
-  ######
+  #mongoid2(resque-web、rails3)だと自己参照がうまく行えない。。。
+  if defined?(::Rails) 
+    if ::Rails.version == "4.0.0"
+      field :actress_id, type: Actress
+      has_many :similars, :class_name => 'Actress', :foreign_key => :actress_id 
+      #↓要る
+      belongs_to :actress, :class_name => 'Actress', :foreign_key => :actress_id 
+    end
+  end
 
   def thumbnail_rand
     photos.map{|p| p.url}[rand(4)]

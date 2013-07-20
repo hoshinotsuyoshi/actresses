@@ -3,5 +3,5 @@ class Photo
   field :path, type: String
   field :url, type: String
   field :secure_url, type: String
-  belongs_to :actress
+  belongs_to :actress, :class_name=> 'Actress'
 end
