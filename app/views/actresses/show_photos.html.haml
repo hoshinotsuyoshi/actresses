@@ -1,7 +1,9 @@
 %h2{:itemprop=>"name"}
   ="#{@actress.name}の画像" if @actress
+
+-# social feedback
 - require 'uri'
-- if params[:page] == 0.to_s
+- if params[:page].to_i.zero?
   %a{:href=>"https://twitter.com/share",:class=>"twitter-share-button",:"data-count"=>"horizontal",:"data-url"=>"#{request.url}",:"data-text"=>"#{@title}",:"data-lang"=>"ja"}
     Tweet
   %script{:charset=>"utf-8",:type=>"text/javascript",:src=>"//platform.twitter.com/widgets.js"}
