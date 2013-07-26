@@ -7,7 +7,7 @@
       %a{:href=>"/actress/#{@actress.name}?page=#{@page-1}"}　前へ　
 
   %li{:class=>("disabled" if @page.zero? )}
-    = "#{@page+1}ページ / #{@actress.page_size.to_s}ページ"
+    = "#{@page+1} / #{@actress.page_size.to_s}ページ"
 
   %li{:class=>("disabled" if @actress.page_size - 1 == @page )}
     - if @actress.page_size - 1 == @page
