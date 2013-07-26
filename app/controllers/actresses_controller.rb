@@ -31,6 +31,7 @@ class ActressesController < ApplicationController
     @actresses = Actress.all
     @actress = Actress.where(:name=>params[:name]).first
     @page    = params[:page].to_i
+    @title = "#{@actress.name}の画像 全#{@actress.photos.size.to_s}枚#{params[:page].to_i+1}枚目"
   end
 
   # GET /actresses/new
