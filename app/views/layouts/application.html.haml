@@ -23,10 +23,11 @@
         .container-fluid
           %a.btn.btn-navbar(data-toggle="collapse" data-target="nav-collapse")
             %span.icon-bar
-              %a.brand{:href=>"/"}
-                = ::EroRailsReplacerDbDev::Application::SiteName
-                %p.sub_title
-                  = @title.to_s
+              %p
+                %a.brand{:href=>"/"}
+                  = ::EroRailsReplacerDbDev::Application::SiteName
+              %p.sub_title
+                = @title.to_s
     .container-fluid
 
       .row-fluid
