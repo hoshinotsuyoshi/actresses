@@ -21,6 +21,8 @@ class ActressesController < ApplicationController
   def show_photos
     @actresses = Actress.all
     @actress = Actress.where(:name=>params[:name]).first
+    page_size = (@actress.photos.size.to_f / 8 ).ceil
+    redirect_to "/actress/#{@actress.name}" unless params[:page].to_i.between? 0,page_size-1
     @title = "#{@actress.name}の画像 全#{@actress.photos.size.to_s}枚#{params[:page].to_i+1}ページ目"
     @sidebar = true
   end

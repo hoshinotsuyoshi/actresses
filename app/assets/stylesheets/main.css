@@ -556,16 +556,16 @@ h6 small {
   color: #a28d6b;
 }
 h1 {
-  font-size: 36px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 24px;
 }
 h2 {
-  font-size: 30px;
-  line-height: 40px;
+  font-size: 24px;
+  line-height: 24px;
 }
 h3 {
   font-size: 24px;
-  line-height: 40px;
+  line-height: 24px;
 }
 h4 {
   font-size: 18px;
@@ -3431,7 +3431,7 @@ input[type="submit"].btn.btn-mini {
   display: block;
   padding: 10px 20px 10px;
   margin-left: -20px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 200;
   color: #1461d2;
   text-shadow: 0 1px 0 #104fb0;
