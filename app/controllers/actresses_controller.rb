@@ -10,7 +10,7 @@ class ActressesController < ApplicationController
   end
 
   def index_photos
-    @actresses = Actress.all
+    @actresses = Actress.where(:display=>true).to_a
   end
 
   # GET /actresses/1
@@ -19,7 +19,7 @@ class ActressesController < ApplicationController
   end
 
   def show_photos
-    @actresses = Actress.all
+    @actresses = Actress.where(:display=>true).to_a
     @actress = Actress.where(:name=>params[:name]).first
     page_size = (@actress.photos.size.to_f / 8 ).ceil
     redirect_to "/actress/#{@actress.name}" unless params[:page].to_i.between? 0,page_size-1
@@ -28,7 +28,7 @@ class ActressesController < ApplicationController
   end
 
   def show_a_photo
-    @actresses = Actress.all
+    @actresses = Actress.where(:display=>true).to_a
     @actress = Actress.where(:name=>params[:name]).first
     @page    = params[:page].to_i
     @title = "#{@actress.name}の画像 全#{@actress.photos.size.to_s}枚#{params[:page].to_i+1}枚目"
@@ -40,13 +40,33 @@ class ActressesController < ApplicationController
   end
 
   def admin
-    @actresses = Actress.all
+    @actresses = Actress.all.sort_by{|a|a.name}
   end
 
   def similar
-    @actresses = Actress.all
+    redirect_to '/admi' if params[:name].blank?
+    actress = Actress.where(:name=>params[:name]).first
+    redirect_to '/admi' if !actress
+    array = [params[:act01],params[:act02],params[:act03],params[:act04],params[:act05]].select{|e| !e.blank?}
+    while !array.empty? do
+      actress2 = Actress.where(:name=>array.shift).first
+      next if !actress2
+      similar_regist actress ,actress2
+      similar_regist actress2,actress
+    end
+    redirect_to '/admi' 
   end
 
+  private
+  def similar_regist subject,object
+    subject.similars.push object
+    subject.similars.uniq!
+    subject.save
+  end
+
+
+
+  public
   # GET /actresses/1/edit
   def edit
   end
