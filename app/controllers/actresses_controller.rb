@@ -1,6 +1,5 @@
 # coding: utf-8
 class ActressesController < ApplicationController
-  require 'kconv'
   before_action :set_actress, only: [:show, :edit, :update, :destroy]
 
   # GET /actresses
@@ -42,16 +41,6 @@ class ActressesController < ApplicationController
 
   def admin
     @actresses = Actress.all
-  end
-
-  def admin_post
-    redirect '/admi' if params[:name].blank?
-    actress = params[:name]
-    array = [params[:url01],params[:url02],params[:url03],params[:url04],params[:url05],params[:url06],params[:url07],params[:url08],params[:url09],params[:url10]].select{|e| !e.blank?}
-    while !array.empty? do
-      Resque.enqueue Demo::ActressJob,[actress,array.shift]
-    end
-    redirect '/admi' 
   end
 
   def similar

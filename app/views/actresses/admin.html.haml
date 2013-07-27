@@ -1,41 +1,6 @@
 -# coding: utf-8
 %h1 admin
 
--# new
-[new]
-%form{:method=>"POST",:action=>"/admi"}
-  %dt
-    form
-    %dd
-      お名前
-      %input{:name=>"name"}
-    - (101..103).each do |i|
-      %dd
-        - d = "url" + i.to_s[1,2]
-        = d
-        %input{:name=> d }
-  %button{:type=>"submit"} submit
--# sort
-- @actresses = @actresses.sort_by{|a|a.name}
-
-[existing]
-%form{:method=>"POST",:action=>"/admi"}
-  %dt
-    form
-    %dd
-      お名前
-      %select{:name=>"name"}
-        - @actresses.each do |a|
-          %option{:value=>a.name.to_s}= a.name.to_s + (a.display ? "★" : "☆")
-    - (101..110).each do |i|
-      %dd
-        - d = "url" + i.to_s[1,2]
-        = d
-        %input{:name=> d }
-  %button{:type=>"submit"} submit
-
-%br
-
 -# similar-regist
 [similar]
 %form{:method=>"POST",:action=>"/regist_similar"}
