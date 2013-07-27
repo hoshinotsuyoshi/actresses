@@ -4,6 +4,7 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
+    render :status => :forbidden, :text => "Forbidden fruit" if Rails.env.production?
     @photos = Photo.all
   end
 

@@ -6,6 +6,7 @@ class ActressesController < ApplicationController
   # GET /actresses
   # GET /actresses.json
   def index
+    render :status => :forbidden, :text => "Forbidden fruit" if Rails.env.production?
     @actresses = Actress.all
   end
 
