@@ -40,7 +40,8 @@
               %ul.nav.nav-list
               %ul.nav.nav-list
                 -# %li.nav-header publishes
-                - (0..2).each do |i|
+                - n = params[:page].to_i
+                - (3*n+0..3*n+2).each do |i|
                   .amazlink-box{:style=>"text-align:left;padding-bottom:20px;font-size:small;/zoom: 1;overflow: hidden;"}
                     .amazlink-list{:style=>"clear: both;"}
                       .amazlink-image{:style=>"float:left;margin:0px 12px 1px 0px;"}
