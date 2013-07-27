@@ -17,8 +17,6 @@ EroRailsReplacerDbDev::Application.routes.draw do
   #get '/admi' => 'actresses#admin'
   get '/admi' => 'actresses#admin'
 
-  post '/admi' => 'actresses#admin_post'
-
   post '/regist_similar' => 'actresses#similar'
 
   # The priority is based upon order of creation: first created -> highest priority.
