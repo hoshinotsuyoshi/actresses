@@ -4,7 +4,7 @@ class Actress
   include Mongoid::Document
   field :name, type: String
   field :text, type: String
-  field :display, :type => Boolean , :default=>true
+  field :display, :type => String , :default=>"1"
   has_many :photos 
 
   scope :display, where(:display=>"1")
