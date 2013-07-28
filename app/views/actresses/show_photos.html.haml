@@ -17,7 +17,7 @@
 - if params[:page].to_i.zero?
   .well
     %p{:itemprop=>"articleBody"}
-      = @actress.text
+      = raw @actress.text
 
 
 -# photos
