@@ -17,7 +17,10 @@
             %a{:href=>"/actress/#{@a.name}"}
               = @a.name + " #{@a.photos.size.to_s}枚"
 
-%h3 おすすめ女優
+- if request.path=="/" 
+  %h3 おすすめ女優
+- else
+  %h3 ピックアップ
 - @actresses = @actresses.sort_by{rand}
 -# トップページなら全部、それ以外なら6個
 - @lis = request.path=="/" ? 6  : 2

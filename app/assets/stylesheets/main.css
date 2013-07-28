@@ -2445,19 +2445,27 @@ button.close {
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
+  /* monkey
   color: #104fb0;
+  monkey */
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  background-color: #b6c2c9;
+  /* monkey
+  background-color: #b6c2c9; 
+  monkey */
+  /* monkey
   background-image: -moz-linear-gradient(top, #c2ccd2, #a5b3bc);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#c2ccd2), to(#a5b3bc));
   background-image: -webkit-linear-gradient(top, #c2ccd2, #a5b3bc);
   background-image: -o-linear-gradient(top, #c2ccd2, #a5b3bc);
   background-image: linear-gradient(to bottom, #c2ccd2, #a5b3bc);
+  monkey */
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc2ccd2', endColorstr='#ffa5b3bc', GradientType=0);
+  /* monkey
   border-color: #a5b3bc #a5b3bc #798f9c;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #a5b3bc;
+  monkey */
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -2472,6 +2480,7 @@ button.close {
   -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
 }
+/* monkey
 .btn:hover,
 .btn:active,
 .btn.active,
@@ -2481,6 +2490,7 @@ button.close {
   background-color: #a5b3bc;
   *background-color: #96a7b2;
 }
+monkey */
 .btn:active,
 .btn.active {
   background-color: #879ba7 \9;
@@ -2488,12 +2498,12 @@ button.close {
 .btn:first-child {
   *margin-left: 0;
 }
+/* monkey
 .btn:hover {
   color: #104fb0;
   text-decoration: none;
   background-color: #a5b3bc;
   *background-color: #96a7b2;
-  /* Buttons in IE7 don't get borders, so darken on hover */
 
   background-position: 0 -15px;
   -webkit-transition: background-position 0.1s linear;
@@ -2501,6 +2511,7 @@ button.close {
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
 }
+monkey */
 .btn:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;
