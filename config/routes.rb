@@ -1,8 +1,6 @@
 EroRailsReplacerDbDev::Application.routes.draw do
   resources :photos
 
-  resources :similar_actresses
-
   resources :actresses
 
   #top page

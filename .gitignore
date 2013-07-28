@@ -16,3 +16,5 @@
 /tmp
 # Ignore vendor/bundle
 /vendor/bundle
+# resque-web
+/resque-web
