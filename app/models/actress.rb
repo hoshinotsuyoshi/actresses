@@ -6,7 +6,8 @@ class Actress
   field :text, type: String
   field :display, :type => Boolean , :default=>true
   has_many :photos 
-  ## has_and_belongs_to_many :similar_actresses
+
+  scope :display, where(:display=>"1")
 
   #similar
   #mongoid2(resque-web、rails3)だと自己参照がうまく行えない。。。
