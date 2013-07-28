@@ -21,9 +21,9 @@ class ActressesController < ApplicationController
   def show_photos
     @actresses = Actress.where(:display=>true).to_a
     @actress = Actress.where(:name=>params[:name]).first
-    page_size = (@actress.photos.size.to_f / 8 ).ceil
+    page_size = (@actress.photos.released.size.to_f / 8 ).ceil
     redirect_to "/actress/#{@actress.name}" unless params[:page].to_i.between? 0,page_size-1
-    @title = "#{@actress.name}の画像 全#{@actress.photos.size.to_s}枚#{params[:page].to_i+1}ページ目"
+    @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}ページ目"
     @sidebar = true
   end
 
@@ -31,7 +31,7 @@ class ActressesController < ApplicationController
     @actresses = Actress.where(:display=>true).to_a
     @actress = Actress.where(:name=>params[:name]).first
     @page    = params[:page].to_i
-    @title = "#{@actress.name}の画像 全#{@actress.photos.size.to_s}枚#{params[:page].to_i+1}枚目"
+    @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}枚目"
   end
 
   # GET /actresses/new

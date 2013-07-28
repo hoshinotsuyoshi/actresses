@@ -20,15 +20,15 @@ class Actress
   end
 
   def thumbnail_rand
-    photos.map{|p| p.url}[rand(4)]
+    photos.released.map{|p| p.url}[rand(4)]
   end
 
   def photos_urls
-    photos.map{|p| p.url}
+    photos.released.map{|p| p.url}
   end
 
   def page_size
-    (photos.size.to_f / 8 ).ceil
+    (photos.released.size.to_f / 8 ).ceil
   end
 
 end
