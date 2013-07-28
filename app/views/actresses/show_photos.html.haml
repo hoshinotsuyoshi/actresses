@@ -47,15 +47,15 @@
 %p
   %a{:href=>"/"}
     %button{:class=>"btn btn-large btn-block",:type=>"button"}
-      = "画像つきで全部見る（#{Actress.where(:display=>true).size}人）"
-- Actress.where(:display=>true).each do |a|
+      = "画像つきで全部見る（#{Actress.display.size}人）"
+- Actress.display.each do |a|
   %a{:href=>"/actress/#{a.name}"}
     %button{:class=>"btn",:type=>"submit"}
       = "#{a.name}"
 %p
   %a{:href=>"/"}
     %button{:class=>"btn btn-large btn-block",:type=>"button"}
-      = "画像つきで全部見る（#{Actress.where(:display=>true).size}人）"
+      = "画像つきで全部見る（#{Actress.display.size}人）"
 
 = content_for :title do
   = @title
