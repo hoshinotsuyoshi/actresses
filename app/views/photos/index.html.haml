@@ -5,6 +5,7 @@
     %th Path
     %th Url
     %th Secure url
+    %th Release date
     %th
     %th
     %th
@@ -14,6 +15,7 @@
       %td= photo.path
       %td= photo.url
       %td= photo.secure_url
+      %td= photo.release_date
       %td= link_to 'Show', photo
       %td= link_to 'Edit', edit_photo_path(photo)
       %td= link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' }
