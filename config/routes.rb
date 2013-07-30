@@ -6,6 +6,9 @@ EroRailsReplacerDbDev::Application.routes.draw do
   #top page
   root :to=>"actresses#index_photos"
 
+  #site_map
+  get '/sitemap' => 'actresses#sitemap'
+
   #photo page
   get '/actress/image/:name/:page' => 'actresses#show_a_photo'
 

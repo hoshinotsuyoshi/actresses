@@ -13,6 +13,13 @@ class ActressesController < ApplicationController
     @actresses = Actress.display.to_a
   end
 
+  def sitemap
+    @actresses = Actress.all
+    respond_to do |format|
+      format.xml
+    end
+  end
+
   # GET /actresses/1
   # GET /actresses/1.json
   def show
