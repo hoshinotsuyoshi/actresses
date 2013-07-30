@@ -35,12 +35,21 @@
 -# paginate
 = render :partial => "paginate"
 
+:javascript
+  var nend_params = {"media":9374,"site":38951,"spot":76150,"type":1,"oriented":1};
+%script{:type=>"text/javascript",:src=>"http://js1.nend.net/js/nendAdLoader.js"}
+
 -# actress list
 .well
   = render :partial => "actress_list"
 
 -# paginate
 = render :partial => "paginate"
+
+:javascript
+  var nend_params = {"media":9374,"site":38951,"spot":76149,"type":1,"oriented":1};
+%script{:type=>"text/javascript",:src=>"http://js1.nend.net/js/nendAdLoader.js"}
+
 
 %h3 他のタレント画像
 
