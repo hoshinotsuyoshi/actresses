@@ -10,6 +10,9 @@ gem 'rails_12factor'
 # for heroku
 gem 'heroku'
 
+# new relic
+gem 'newrelic_rpm'
+
 # test
 gem 'rspec-rails', :group => [:test, :development]
 group :test do

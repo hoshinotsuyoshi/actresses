@@ -138,6 +138,7 @@ GEM
     moped (1.5.0)
     multi_json (1.7.7)
     netrc (0.7.7)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     origin (1.1.0)
@@ -248,6 +249,7 @@ DEPENDENCIES
   less-rails
   mongoid!
   mongoid-rspec
+  newrelic_rpm
   rails (= 4.0.0)
   rails_12factor
   rb-readline (~> 0.4.2)
