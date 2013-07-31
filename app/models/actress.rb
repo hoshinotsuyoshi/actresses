@@ -21,11 +21,11 @@ class Actress
   end
 
   def thumbnail_rand
-    photos.released.map{|p| p.url}[rand(4)]
+    photos.released.sort_by{|p|p.release_date}.reverse.map{|p| p.url}[rand(4)]
   end
 
   def photos_urls
-    photos.released.map{|p| p.url}
+    photos.released.sort_by{|p|p.release_date}.reverse.map{|p| p.url}
   end
 
   def page_size
