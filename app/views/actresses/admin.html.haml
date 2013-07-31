@@ -35,7 +35,7 @@
   - Photo.table(:latest).sort_by{|t|t[:date]}.reverse.each do |t|
     %tr
       %td= t[:name]
-      %td= t[:date]
+      %td= Time.parse(t[:date]) + 60*60*9 #tokyo
       %td= t[:size]
 %br
 [未配信]
@@ -47,7 +47,7 @@
   - Photo.table(:unreleased).sort_by{|t|t[:date]}.reverse.each do |t|
     %tr
       %td= t[:name]
-      %td= t[:date]
+      %td= Time.parse(t[:date]) + 60*60*9 #tokyo
       %td= t[:size]
 %br
 
