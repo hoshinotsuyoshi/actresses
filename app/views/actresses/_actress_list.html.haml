@@ -18,13 +18,17 @@
               = @a.name + " #{@a.photos.size.to_s}枚"
 
 - if request.path=="/" 
+  = render :partial => "what_new"
+ 
+
+- if request.path=="/" 
   %h3 おすすめ女優
 - else
   %h3 ピックアップ
 - @actresses = @actresses.sort_by{rand}
 -# トップページなら全部、それ以外なら6個
 - @lis = request.path=="/" ? 6  : 2
-- @uls = request.path=="/" ? @actresses.size / 6  : 1
+- @uls = request.path=="/" ? @actresses.size / (params["full"] ? 6 : 18)  : 1
 - @uls.times do |i|
   %ul.thumbnails
     - (i*@lis).upto(i*@lis+@lis-1) do |n|
@@ -36,4 +40,5 @@
           %a{:href=>"/actress/#{@a.name}"}
             = @a.name + " #{@a.photos.size.to_s}枚"
 
-
+- if request.path=="/" 
+  = render :partial => "button_list"

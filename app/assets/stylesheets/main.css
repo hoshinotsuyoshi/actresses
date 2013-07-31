@@ -323,6 +323,7 @@ a:hover {
 }
 .row-fluid [class*="span"]:first-child {
   margin-left: 0;
+  margin-top: 10px;
 }
 /*
 .row-fluid .span12 {
@@ -3109,7 +3110,7 @@ input[type="submit"].btn.btn-mini {
   margin-top: 9px;
 }
 .nav-list {
-  padding-left: 15px;
+  padding-left: 0px;
   padding-right: 15px;
   margin-bottom: 0;
 }

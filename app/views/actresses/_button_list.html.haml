@@ -1,0 +1,23 @@
+
+:javascript
+  var nend_params = {"media":9374,"site":38951,"spot":76149,"type":1,"oriented":1};
+%script{:type=>"text/javascript",:src=>"http://js1.nend.net/js/nendAdLoader.js"}
+
+- if request.path == "/"
+  %h3 全てのタレント画像
+- else
+  %h3 他のタレント画像
+
+%p
+  %a{:href=>"/?full=true"}
+    %button{:class=>"btn btn-large btn-block",:type=>"button"}
+      = "画像つきで全部見る（#{Actress.display.size}人）"
+- Actress.display.each do |a|
+  %a{:href=>"/actress/#{a.name}"}
+    %button{:class=>"btn",:type=>"submit"}
+      = "#{a.name}"
+%p
+  %a{:href=>"/?full=true"}
+    %button{:class=>"btn btn-large btn-block",:type=>"button"}
+      = "画像つきで全部見る（#{Actress.display.size}人）"
+

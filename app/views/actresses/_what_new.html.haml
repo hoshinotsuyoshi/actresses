@@ -1,0 +1,10 @@
+.span12
+  %div{:class=>"well sidebar-nav"}
+    %ul{:class=>"nav nav-list"}
+      - Photo.table(:latest).sort_by{|t|t[:date]}.reverse.each do |t|
+        - day = Time.parse(t[:date])
+        %li
+          %a{:href=>"/actress/#{t[:name]}"}
+            %u
+              = "#{day.month}/#{day.day}"
+              = "「#{t[:name]}」#{t[:size]}枚追加！"
