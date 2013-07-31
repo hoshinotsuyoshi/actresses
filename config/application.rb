@@ -31,5 +31,8 @@ module EroRailsReplacerDbDev
     config.assets.initialize_on_precompile = false
 
     config.encoding = "utf-8"
+
+    #use gzip
+    config.middleware.use Rack::Deflater
   end
 end
