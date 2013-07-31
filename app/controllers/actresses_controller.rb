@@ -48,6 +48,8 @@ class ActressesController < ApplicationController
 
   def admin
     @actresses = Actress.all.sort_by{|a|a.name}
+    @released = Photo.released
+    @unreleased = Photo.unreleased
   end
 
   def similar

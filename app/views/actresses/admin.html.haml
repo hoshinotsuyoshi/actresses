@@ -20,3 +20,34 @@
           - @actresses.each do |a|
             %option{:value=>a.name.to_s}= a.name.to_s + (a.display ? "★" : "☆")
   %button{:type=>"submit"} submit
+[予約配信状況]
+%p
+  = "未配信:#{@unreleased.size}"
+%p
+  = "配信済:#{@released.size}"
+
+[直近5日以内配信]
+%table
+  %tr
+    %th Name
+    %th Date
+    %th Size
+  - Photo.table(:latest).sort_by{|t|t["date"]}.reverse.each do |t|
+    %tr
+      %td= t[:name]
+      %td= t[:date]
+      %td= t[:size]
+%br
+[未配信]
+%table
+  %tr
+    %th Name
+    %th Date
+    %th Size
+  - Photo.table(:unreleased).sort_by{|t|t["date"]}.reverse.each do |t|
+    %tr
+      %td= t[:name]
+      %td= t[:date]
+      %td= t[:size]
+%br
+
