@@ -5,7 +5,7 @@
 .container-fluid
   .row-fluid
     .li.span12
-      %img{:src=>@actress.photos[params[:page].to_i].url}
+      %img{:src=>@actress.photos.released.sort_by{|p|p.release_date}.reverse.map{|p| p.url}[params[:page].to_i].url}
 
 -# actress list
 .well
