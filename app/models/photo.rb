@@ -1,3 +1,4 @@
+# coding: utf-8
 class Photo
   include Mongoid::Document
   field :path, type: String
@@ -11,7 +12,12 @@ class Photo
   scope :unreleased ,where(:release_date.gt  => Time.now)
 
   # 5days latest
-  scope :latest ,between(release_date: ((Time.now-60*60*24*5)..(Time.now)))
+  #worker(resque-web、rails3)だとbetween が使えない
+  if defined?(::Rails) 
+    if ::Rails.version == "4.0.0"
+      scope :latest ,between(release_date: ((Time.now-60*60*24*5)..(Time.now)))
+    end
+  end
 
   def self.table(sym=:latest)
     self.group(sym).map{|k,v|{:name=>k[0].name,:date=>k[1].to_s,:size=>v.size}}
