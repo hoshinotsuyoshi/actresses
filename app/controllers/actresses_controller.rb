@@ -29,7 +29,7 @@ class ActressesController < ApplicationController
     @actresses = Actress.display.to_a
     @actress = Actress.where(:name=>params[:name]).first
     page_size = (@actress.photos.released.size.to_f / 8 ).ceil
-    redirect_to "/actress/#{@actress.name}" unless params[:page].to_i.between? 1,page_size-1
+    redirect_to "/actress/#{@actress.name}" if !params[:page].nil? && !params[:page].to_i.between?(1,page_size-1)
     @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}ページ目"
     @sidebar = true
   end
