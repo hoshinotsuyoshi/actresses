@@ -32,7 +32,5 @@ module EroRailsReplacerDbDev
 
     config.encoding = "utf-8"
 
-    #use gzip
-    config.middleware.use Rack::Deflater
   end
 end
