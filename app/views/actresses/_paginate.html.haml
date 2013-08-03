@@ -1,16 +1,16 @@
 -# paginate
 %ul.pager
-  - @page = params[:page].to_i
-  %li{:class=>("disabled" if @page.zero? )}
-    - if @page.zero?
+  - page = params[:page].to_i
+  %li{:class=>("disabled" if page.zero? )}
+    - if page.zero?
     - else
-      %a{:href=>"/actress/#{@actress.name}?page=#{@page-1}"}　前へ　
+      %a{:href=>"/actress/#{@actress.name}?page=#{page-1}"}　前へ　
 
-  %li{:class=>("disabled" if @page.zero? )}
-    = "#{@page+1} / #{@actress.page_size.to_s}ページ"
+  %li{:class=>("disabled" if page.zero? )}
+    = "#{page+1} / #{@actress.page_size.to_s}ページ"
 
-  %li{:class=>("disabled" if @actress.page_size - 1 == @page )}
-    - if @actress.page_size - 1 == @page
+  %li{:class=>("disabled" if @actress.page_size - 1 == page )}
+    - if @actress.page_size - 1 == page
     - else 
-      %a{:href=>"/actress/#{@actress.name}?page=#{@page+1}"}　次へ　
+      %a{:href=>"/actress/#{@actress.name}?page=#{page+1}"}　次へ　
 
