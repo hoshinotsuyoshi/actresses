@@ -9,6 +9,10 @@ class Actress
 
   scope :display, where(:display=>"1")
 
+  field :release_date, type: DateTime
+  scope :released   ,where(:release_date.lte => Time.now)
+  scope :unreleased ,where(:release_date.gt  => Time.now)
+
   #similar
   #mongoid2(resque-web、rails3)だと自己参照がうまく行えない。。。
   if defined?(::Rails) 

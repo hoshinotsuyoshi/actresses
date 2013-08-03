@@ -10,7 +10,7 @@ class ActressesController < ApplicationController
   end
 
   def index_photos
-    @actresses = Actress.display.to_a
+    @actresses = Actress.display.released.to_a
   end
 
   def sitemap
@@ -26,7 +26,7 @@ class ActressesController < ApplicationController
   end
 
   def show_photos
-    @actresses = Actress.display.to_a
+    @actresses = Actress.display.released.to_a
     @actress = Actress.where(:name=>params[:name]).first
     page_size = (@actress.photos.released.size.to_f / 8 ).ceil
     redirect_to "/actress/#{@actress.name}" if !params[:page].nil? && !params[:page].to_i.between?(1,page_size-1)
@@ -35,7 +35,7 @@ class ActressesController < ApplicationController
   end
 
   def show_a_photo
-    @actresses = Actress.display.to_a
+    @actresses = Actress.display.released.to_a
     @actress = Actress.where(:name=>params[:name]).first
     @page    = params[:page].to_i
     @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}枚目"
