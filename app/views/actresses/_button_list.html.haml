@@ -3,6 +3,8 @@
   var nend_params = {"media":9374,"site":38951,"spot":76149,"type":1,"oriented":1};
 %script{:type=>"text/javascript",:src=>"http://js1.nend.net/js/nendAdLoader.js"}
 
+= render :partial=>"tag_list"
+
 - if request.path == "/"
   %h3 全てのタレント画像
 - else
