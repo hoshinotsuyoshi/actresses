@@ -1,11 +1,7 @@
 source 'https://rubygems.org'
 
-group :development do
-  ruby '1.9.3'
-end
-group :production do
-  ruby '2.0.0'
-end
+ruby '2.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
