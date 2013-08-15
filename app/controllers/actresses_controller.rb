@@ -31,12 +31,18 @@ class ActressesController < ApplicationController
     redirect_to "/actress/#{@actress.name}" if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
     @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}ページ目"
     @sidebar = true
+    @tags = Tag.all
   end
 
   def show_a_photo
     @actresses = Actress.display.released.to_a
     @actress = Actress.where(:name=>params[:name]).first
-    @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}枚目"
+    @photo = Photo.where(:id=>params[:id]).first
+    @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{@actress.photos_sort_by_release_date.index(@photo)+1}枚目"
+    if Rails.env == "development"
+      @photo.point += 1
+      @photo.save
+    end
   end
 
   # GET /actresses/new
@@ -48,6 +54,7 @@ class ActressesController < ApplicationController
     @actresses = Actress.all.sort_by{|a|a.name}
     @released = Photo.released
     @unreleased = Photo.unreleased
+    @tags = Tag.all
   end
 
   def similar
@@ -71,7 +78,25 @@ class ActressesController < ApplicationController
     subject.save
   end
 
-
+  public
+  def tag
+    redirect_to '/admi' if params[:name].blank?
+    tag = Tag.where(:name=>params[:name]).first
+    redirect_to '/admi' if !tag
+    array = [params[:act01],params[:act02],params[:act03],params[:act04],params[:act05]].select{|e| !e.blank?}
+    while !array.empty? do
+      actress = Actress.where(:name=>array.shift).first
+      next if !actress
+      tag_regist tag ,actress
+    end
+    redirect_to '/admi' 
+  end
+  private
+  def tag_regist subject,object
+    subject.actresses.push object
+    subject.actresses.uniq!
+    subject.save
+  end
 
   public
   # GET /actresses/1/edit

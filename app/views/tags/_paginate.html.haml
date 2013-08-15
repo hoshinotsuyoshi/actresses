@@ -1,0 +1,16 @@
+-# paginate
+%ul.pager
+  - page = params[:page].to_i
+  %li{:class=>("disabled" if page.zero? )}
+    - if page.zero?
+    - else
+      %a{:href=>"/tag/#{@tag.name}?page=#{page-1}"}　前へ　
+
+  %li{:class=>("disabled" if page.zero? )}
+    = "#{page+1} / #{@tag.page_size.to_s}ページ"
+
+  %li{:class=>("disabled" if @tag.page_size - 1 == page )}
+    - if @tag.page_size - 1 == page
+    - else 
+      %a{:href=>"/tag/#{@tag.name}?page=#{page+1}"}　次へ　
+

@@ -5,7 +5,7 @@
 
 
 %h2{:itemprop=>"name"}
-  ="#{@actress.name}の画像" if @actress
+  ="#{@tag.name}の画像" if @tag
 
 -# social feedback
 - require 'uri'
@@ -23,21 +23,25 @@
 - if params[:page].to_i.zero?
   .well
     %p{:itemprop=>"articleBody"}
-      = raw @actress.text
+      = raw @tag.text
 
 
 -# photos
 .container-fluid
   .row-fluid
     - (params[:page].to_i*8).upto((params[:page].to_i*8) +8 - 1) do |i|
-      - if photo = @actress.photos_sort_by_points[i]
+      - if photo = @tag.photos_sort_by_points[i]
         .span5
-          %a{:href=>"/actress/image/#{@actress.name}/#{photo.id}",:target=>"blank"}
+          %a{:href=>"/actress/image/#{photo.actress.name}/#{photo.id}",:target=>"blank"}
             - if i == 0
-              %img{:src=>photo.url,:alt=>"#{@actress.name}",:width=>"40%",:itemprop=>"image"}
+              %img{:src=>photo.url,:alt=>"#{@tag.name},#{photo.actress.name}",:width=>"40%",:itemprop=>"image"}
             - if i >= 1
-              %img{:src=>photo.url,:alt=>"#{@actress.name}",:width=>"40%"}
+              %img{:src=>photo.url,:alt=>"#{@tag.name},#{photo.actress.name}",:width=>"40%"}
+          %button{:class=>"btn",:type=>"button"}
+            %a{:href=>"/actress/#{photo.actress.name}"}
+              = photo.actress.name
           %p
+
 
 -# paginate
 = render :partial => "paginate"
@@ -48,16 +52,16 @@
 
 -# actress list
 .well
-  = render :partial => "actress_list"
+  = render :partial => "actresses/actress_list"
 
 -# paginate
 = render :partial => "paginate"
 
 -# button_list
-= render :partial => "button_list"
+= render :partial => "actresses/button_list"
 
 -# tag_list
-= render :partial => "tag_list"
+= render :partial => "actresses/tag_list"
 
 = content_for :title do
   = @title

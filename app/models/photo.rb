@@ -7,6 +7,7 @@ class Photo
   field :big_url, type: String
   belongs_to :actress, :class_name=> 'Actress'
   field :release_date, type: DateTime
+  field :point, type: Integer, :default => 0
 
   scope :released   ,where(:release_date.lte => Time.now)
   scope :unreleased ,where(:release_date.gt  => Time.now)

@@ -6,6 +6,7 @@ class Actress
   field :text, type: String
   field :display, :type => String , :default=>"1"
   has_many :photos 
+  has_and_belongs_to_many :tags
 
   scope :display, where(:display=>"1")
 
@@ -25,11 +26,15 @@ class Actress
   end
 
   def thumbnail_rand
-    photos.released.sort_by{|p|p.release_date}.reverse.map{|p| p.url}[rand(4)]
+    photos_sort_by_points.map(&:url)[rand(4)]
   end
 
-  def photos_urls
-    photos.released.sort_by{|p|p.release_date}.reverse.map{|p| p.url}
+  def photos_sort_by_points
+    photos.released.sort_by(&:point).reverse
+  end
+
+  def photos_sort_by_release_date
+    photos.released.sort_by(&:release_date)
   end
 
   def page_size

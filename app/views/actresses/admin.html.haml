@@ -20,6 +20,29 @@
           - @actresses.each do |a|
             %option{:value=>a.name.to_s}= a.name.to_s + (a.display ? "★" : "☆")
   %button{:type=>"submit"} submit
+
+%br
+-# tag-regist
+[tag]
+= form_tag "/regist_tag" do
+  %dt
+    form
+    %dd
+      タグ名
+      %select{:name=>"name"}
+        - @tags.each do |tag|
+          %option{:value=>tag.name.to_s}= tag.name.to_s
+    - (101..105).each do |i|
+      %dd
+        - d = "act" + i.to_s[1,2]
+        = d
+        %select{:name=> d }
+          %option{:value=>""}= ""
+          - @actresses.each do |a|
+            %option{:value=>a.name.to_s}= a.name.to_s + (a.display ? "★" : "☆")
+  %button{:type=>"submit"} submit
+
+
 [予約配信状況]
 %p
   = "未配信:#{@unreleased.size}"

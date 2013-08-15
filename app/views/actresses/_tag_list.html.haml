@@ -1,0 +1,11 @@
+
+%h3 全てのジャンル
+
+%p
+
+- @tags.each do |tag|
+  %a{:href=>"/tag/#{tag.name}"}
+    %button{:class=>"btn",:type=>"submit"}
+      = "#{tag.name}"
+%p
+

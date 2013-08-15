@@ -1,4 +1,6 @@
 EroRailsReplacerDbDev::Application.routes.draw do
+  resources :tags
+
   resources :photos
 
   resources :actresses
@@ -10,15 +12,17 @@ EroRailsReplacerDbDev::Application.routes.draw do
   get '/sitemap' => 'actresses#sitemap'
 
   #photo page
-  get '/actress/image/:name/:page' => 'actresses#show_a_photo'
+  get '/actress/image/:name/:id' => 'actresses#show_a_photo'
 
   #get '/actress/:name' => 'actresses#show_photos'
   get '/actress/:name' => 'actresses#show_photos'
+  get '/tag/:name' => 'tags#show_photos'
 
   #get '/admi' => 'actresses#admin'
   get '/admi' => 'actresses#admin'
 
   post '/regist_similar' => 'actresses#similar'
+  post '/regist_tag' => 'actresses#tag'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
