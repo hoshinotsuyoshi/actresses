@@ -11,6 +11,7 @@ class ActressesController < ApplicationController
 
   def index_photos
     @actresses = Actress.display.released.to_a
+    @tags = Tag.all
   end
 
   def sitemap
