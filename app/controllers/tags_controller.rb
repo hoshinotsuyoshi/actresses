@@ -13,6 +13,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
+    render :status => :forbidden, :text => "Forbidden fruit" if Rails.env.production?
     @tags = Tag.all
   end
 

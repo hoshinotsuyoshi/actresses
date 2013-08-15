@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
     @actress = Actress.where(:name=>params[:name]).first
     @photo = Photo.where(:id=>params[:id]).first
     @title = "#{@photo.actress.name}の画像 全#{@photo.actress.photos.released.size.to_s}枚#{@photo.actress.photos_sort_by_release_date.index(@photo)+1}枚目"
-    if Rails.env == "development"
+    if Rails.env.development?
       @photo.point += 1
       @photo.save
     end
