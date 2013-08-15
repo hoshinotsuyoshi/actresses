@@ -1,5 +1,5 @@
 -# coding: utf-8
-%h2="#{@actress.name}の画像" if @actress
+%h2="#{@photo.actress.name}の画像" if @photo.actress.name
 
 -# photos
 .container-fluid
@@ -9,6 +9,6 @@
 
 -# actress list
 .well
-  = render :partial => "actress_list"
+  = render :partial => "actresses/actress_list"
 = content_for :title do
   = @title

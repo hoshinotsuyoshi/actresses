@@ -1,8 +1,8 @@
-# coding: utf-8
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   def show_a_photo
+=begin
     @actresses = Actress.display.released.to_a
     @actress = Actress.where(:name=>params[:name]).first
     @photo = Photo.where(:id=>params[:id]).first
@@ -11,6 +11,7 @@ class PhotosController < ApplicationController
       @photo.point += 1
       @photo.save
     end
+=end
   end
 
   # GET /photos

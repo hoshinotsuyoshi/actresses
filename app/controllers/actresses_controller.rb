@@ -34,17 +34,6 @@ class ActressesController < ApplicationController
     @tags = Tag.all
   end
 
-  def show_a_photo
-    @actresses = Actress.display.released.to_a
-    @actress = Actress.where(:name=>params[:name]).first
-    @photo = Photo.where(:id=>params[:id]).first
-    @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{@actress.photos_sort_by_release_date.index(@photo)+1}枚目"
-    if Rails.env == "development"
-      @photo.point += 1
-      @photo.save
-    end
-  end
-
   # GET /actresses/new
   def new
     @actress = Actress.new

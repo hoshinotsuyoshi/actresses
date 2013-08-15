@@ -12,7 +12,7 @@ EroRailsReplacerDbDev::Application.routes.draw do
   get '/sitemap' => 'actresses#sitemap'
 
   #photo page
-  get '/actress/image/:name/:id' => 'actresses#show_a_photo'
+  get '/actress/image/:name/:id' => 'photos#show_a_photo'
 
   #get '/actress/:name' => 'actresses#show_photos'
   get '/actress/:name' => 'actresses#show_photos'
