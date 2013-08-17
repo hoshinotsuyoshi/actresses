@@ -62,3 +62,10 @@
   = @actress.name
 = content_for :datePublished do
   = @actress.release_date.to_s[0,10] 
+
+- if !params[:page].to_i.zero?
+  = content_for :link_rel_prev do
+    = "/actress/#{@actress.name}/?page=#{params[:page].to_i - 1}"
+- if @actress.page_size - 1 > params[:page].to_i
+  = content_for :link_rel_next do
+    = "/actress/#{@actress.name}/?page=#{params[:page].to_i + 1}"
