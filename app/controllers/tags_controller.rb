@@ -5,6 +5,7 @@ class TagsController < ApplicationController
   def show_photos
     @actresses = Actress.display.released.to_a
     @tag = Tag.where(:name=>params[:name]).first
+    render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@tag
     @tags = Tag.all
     redirect_to "/tag/#{@tag.name}" if !params[:page].nil? && !params[:page].to_i.between?(1,@tag.page_size-1)
     @title = "#{@tag.name}の画像 全#{@tag.photos.size.to_s}枚#{params[:page].to_i+1}ページ目"

@@ -14,10 +14,9 @@ module ApplicationHelper
     @affi[word]["expire"]  = Time.now + (60*60*24)
     @affi[word]["content"] = search word
   end
-
   private
   def search word
     ::Amazon::Ecs.item_search(word, {:response_group => 'Medium', :search_index =>'All', :country => 'jp'})
   end
-
+    
 end

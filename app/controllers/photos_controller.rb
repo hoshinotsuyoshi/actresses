@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
     @actresses = Actress.display.released.to_a
     @actress = Actress.where(:name=>params[:name]).first
     @photo = Photo.where(:id=>params[:id]).first
+    render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@photo
     @title = "#{@photo.actress.name}の画像 全#{@photo.actress.photos.released.size.to_s}枚#{@photo.actress.photos_sort_by_release_date.index(@photo)+1}枚目"
     if Rails.env.development?
       @photo.point += 1
