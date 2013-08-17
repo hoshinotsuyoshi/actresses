@@ -6,7 +6,11 @@
 = render :partial =>"actresses/tag_list"
 %p
 = render :partial =>"actresses/what_new"
-
+%p
+:javascript
+  var nend_params = {"media":9374,"site":38951,"spot":80352,"type":1,"oriented":1};
+%script{:type=>"text/javascript",:src=>"http://js1.nend.net/js/nendAdLoader.js"}
+%p
 - if request.path == "/"
   %h3 全てのタレント画像
 - else
