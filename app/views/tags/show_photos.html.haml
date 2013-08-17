@@ -65,3 +65,15 @@
 
 = content_for :title do
   = @title
+= content_for :url_content do
+  = "http://xn--o1q8h80u333a.xn--u9jw89o.com/tag/#{@tag.name}"
+-# TODO Tag#release_date
+-#= content_for :datePublished do
+  = @tag.release_date.to_s[0,10] 
+
+- if !params[:page].to_i.zero?
+  = content_for :link_rel_prev do
+    = "/tag/#{@tag.name}/?page=#{params[:page].to_i - 1}"
+- if @tag.page_size - 1 > params[:page].to_i
+  = content_for :link_rel_next do
+    = "/tag/#{@tag.name}/?page=#{params[:page].to_i + 1}"

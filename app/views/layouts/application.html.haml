@@ -63,8 +63,8 @@
           %p
       - if content_for? :datePublished
         %meta{:itemprop=>"datePublished",:content=>"#{yield(:datePublished)}"}
-      - if content_for? :actress_name
-        %meta{:itemprop=>"url",:content=>"http://xn--o1q8h80u333a.xn--u9jw89o.com/actress/#{yield(:actress_name)}"}
+      - if content_for? :url_content
+        %meta{:itemprop=>"url",:content=>"#{yield(:url_content)}"}
       %span{:itemprop=>"publisher",:itemscope=>"",:itemtype=>"http://schema.org/Organization"}
         %meta{:itemprop=>"name",:content=>EroRailsReplacerDbDev::Application::SiteName}
       :javascript

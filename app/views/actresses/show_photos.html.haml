@@ -58,8 +58,8 @@
 
 = content_for :title do
   = @title
-= content_for :actress_name do
-  = @actress.name
+= content_for :url_content do
+  = "http://xn--o1q8h80u333a.xn--u9jw89o.com/actress/#{@actress.name}"
 = content_for :datePublished do
   = @actress.release_date.to_s[0,10] 
 
