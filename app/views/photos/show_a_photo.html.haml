@@ -7,6 +7,8 @@
     .li.span12
       %img{:src=>@photo.big_url}
 
+= render :partial => "paginate"
+
 -# actress list
 .well
   = render :partial => "actresses/actress_list"
