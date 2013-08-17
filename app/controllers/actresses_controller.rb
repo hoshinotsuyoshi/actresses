@@ -16,6 +16,7 @@ class ActressesController < ApplicationController
 
   def sitemap
     @actresses = Actress.all
+    @tags      = Tag.all
     respond_to do |format|
       format.xml
     end
