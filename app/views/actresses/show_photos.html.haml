@@ -58,3 +58,7 @@
 
 = content_for :title do
   = @title
+= content_for :actress_name do
+  = @actress.name
+= content_for :datePublished do
+  = @actress.release_date.to_s[0,10] 
