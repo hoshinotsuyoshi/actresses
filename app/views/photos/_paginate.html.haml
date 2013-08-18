@@ -15,3 +15,8 @@
     - else 
       %a{:href=>"/actress/image/#{@photo.actress.name}/#{@photo.actress.photos_sort_by_points[photo_index+1].id}"}　次へ　
 
+%p
+  %a{:href=>"/actress/#{@photo.actress.name}?page=#{(photo_index.to_f/8).to_i}"}
+    %button{:class=>"btn",:type=>"submit"}
+      = "#{@photo.actress.name} の画像一覧"
+%p
