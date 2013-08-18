@@ -7,7 +7,17 @@
     %url
       %loc
         = "http://xn--o1q8h80u333a.xn--u9jw89o.com/actress/#{a.name}"
+      %priority
+        0.7
   - @tags.each do |t|
     %url
       %loc
         = "http://xn--o1q8h80u333a.xn--u9jw89o.com/tag/#{t.name}"
+      %priority
+        0.7
+  - @photos.each do |p|
+    %url
+      %loc
+        = "http://xn--o1q8h80u333a.xn--u9jw89o.com/actress/image/#{p.actress.name}/#{p.id}"
+      %priority
+        0.3
