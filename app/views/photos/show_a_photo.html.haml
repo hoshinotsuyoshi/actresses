@@ -1,4 +1,10 @@
 -# coding: utf-8
+- photo_index = @photo.actress.photos_sort_by_points.index(@photo)
+%p
+  %a{:href=>"/actress/#{@photo.actress.name}?page=#{(photo_index.to_f/8).to_i}"}
+    %button{:class=>"btn",:type=>"submit"}
+      = "#{@photo.actress.name} の画像一覧"
+
 %h2="#{@photo.actress.name}の画像" if @photo.actress.name
 
 -# photos
