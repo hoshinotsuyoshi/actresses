@@ -36,7 +36,6 @@ class ActressesController < ApplicationController
     redirect_to "/actress/#{@actress.name}" and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
 
     @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}ページ目"
-    @sidebar = false #give-up amazon
     @tags = Tag.all
   end
 
