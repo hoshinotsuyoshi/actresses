@@ -19,7 +19,7 @@ ActressApp::Application.routes.draw do
   get '/tag/:name' => 'tags#show_photos', as: :tag_name
 
   #get '/admi' => 'actresses#admin'
-  get '/admi' => 'actresses#admin'
+  get '/admi' => 'actresses#admin', as: :admin
 
   post '/regist_similar' => 'actresses#similar'
   post '/regist_tag' => 'actresses#tag'

@@ -31,9 +31,11 @@ class ActressesController < ApplicationController
     @actress = Actress.where(:name=>params[:name]).first
     render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@actress
     #301
-    redirect_to "/actress/#{@actress.name}",status: 301 and return if params[:page] == "0" 
+    #redirect_to "/actress/#{@actress.name}",status: 301 and return if params[:page] == "0" 
+    redirect_to actress_name_path(@actress.name),status: 301 and return if params[:page] == "0" 
     #302
-    redirect_to "/actress/#{@actress.name}" and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
+    #redirect_to "/actress/#{@actress.name}" and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
+    redirect_to actress_name_path(@actress.name) and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
 
     @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}ページ目"
     @tags = Tag.all
@@ -52,9 +54,9 @@ class ActressesController < ApplicationController
   end
 
   def similar
-    redirect_to '/admi' if params[:name].blank?
+    redirect_to admin_path if params[:name].blank?
     actress = Actress.where(:name=>params[:name]).first
-    redirect_to '/admi' if !actress
+    redirect_to admin_path if !actress
     array = [params[:act01],params[:act02],params[:act03],params[:act04],params[:act05]].select{|e| !e.blank?}
     while !array.empty? do
       actress2 = Actress.where(:name=>array.shift).first
@@ -62,7 +64,7 @@ class ActressesController < ApplicationController
       similar_regist actress ,actress2
       similar_regist actress2,actress
     end
-    redirect_to '/admi' 
+    redirect_to admin_path
   end
 
   private
@@ -74,16 +76,16 @@ class ActressesController < ApplicationController
 
   public
   def tag
-    redirect_to '/admi' if params[:name].blank?
+    redirect_to admin_path if params[:name].blank?
     tag = Tag.where(:name=>params[:name]).first
-    redirect_to '/admi' if !tag
+    redirect_to admin_path if !tag
     array = [params[:act01],params[:act02],params[:act03],params[:act04],params[:act05]].select{|e| !e.blank?}
     while !array.empty? do
       actress = Actress.where(:name=>array.shift).first
       next if !actress
       tag_regist tag ,actress
     end
-    redirect_to '/admi' 
+    redirect_to admin_path
   end
   private
   def tag_regist subject,object
