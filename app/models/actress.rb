@@ -3,6 +3,9 @@ require 'mongoid' #←workerが必要
 class Actress
   include Mongoid::Document
   field :name, type: String
+  validates :name, uniqueness: true
+  field :_id, type: String, default: ->{ name }
+
   field :text, type: String
   field :display, :type => String , :default=>"1"
   has_many :photos 
