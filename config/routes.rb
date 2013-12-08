@@ -19,10 +19,10 @@ ActressApp::Application.routes.draw do
   get '/tag/:name' => 'tags#show_photos', as: :tag_name
 
   #get '/admi' => 'actresses#admin'
-  get '/admi' => 'actresses#admin', as: :admin
+  get '/admi' => 'admin#index', as: :admin
 
-  post '/regist_similar' => 'actresses#similar'
-  post '/regist_tag' => 'actresses#tag'
+  post '/regist_similar' => 'admin#regist_similar'
+  post '/regist_tag' => 'admin#regist_tag'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
