@@ -21,7 +21,7 @@
     %button{:class=>"btn btn-large btn-block",:type=>"button"}
       = "画像つきで全部見る（#{@actresses.size}人）"
 - @actresses.each do |a|
-  %a{:href=>"/actress/#{a.name}"}
+  = link_to actress_name_path(a.name) do
     %button{:class=>"btn",:type=>"submit"}
       = "#{a.name}"
 %p

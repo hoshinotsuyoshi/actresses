@@ -15,7 +15,7 @@ ActressApp::Application.routes.draw do
   get '/actress/image/:name/:id' => 'photos#show_a_photo'
 
   #get '/actress/:name' => 'actresses#show_photos'
-  get '/actress/:name' => 'actresses#show_photos'
+  get '/actress/:name' => 'actresses#show_photos', as: :actress_name
   get '/tag/:name' => 'tags#show_photos'
 
   #get '/admi' => 'actresses#admin'

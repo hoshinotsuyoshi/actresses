@@ -12,9 +12,9 @@
         - @a = @actress.similars[n]
         - if @a
           %li.span2
-            %a.thumbnail{:href=>"/actress/#{@a.name}"}
+            = link_to actress_name_path(@a.name),{:class=>"thumnail"} do
               %img{:src=>"#{@a.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a.name}",:title=>"#{@a.name}"}
-            %a{:href=>"/actress/#{@a.name}"}
+            = link_to actress_name_path(@a.name) do
               = @a.name + " #{@a.photos.size.to_s}枚"
 
 - if request.path=="/" 
@@ -35,9 +35,9 @@
       - @a = @actresses[n]
       - if @a
         %li.span2
-          %a.thumbnail{:href=>"/actress/#{@a.name}"}
+          = link_to actress_name_path(@a.name),{:class=>"thumnail"} do
             %img{:src=>"#{@a.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a.name}",:title=>"#{@a.name}"}
-          %a{:href=>"/actress/#{@a.name}"}
+          = link_to actress_name_path(@a.name) do
             = @a.name + " #{@a.photos.size.to_s}枚"
 
 - if request.path=="/" 
