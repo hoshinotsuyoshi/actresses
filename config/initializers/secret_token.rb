@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-EroRailsReplacerDbDev::Application.config.secret_key_base = 'e5c9f89fa9a8e820270464a3b57b1a217cd7d0461a22ba432a7cffe2d240ad6c7ddc18a295c5e9ac184dca96fe1d81a33a574090055b0cd76323028c3f5691f2'
+ActressApp::Application.config.secret_key_base = 'e5c9f89fa9a8e820270464a3b57b1a217cd7d0461a22ba432a7cffe2d240ad6c7ddc18a295c5e9ac184dca96fe1d81a33a574090055b0cd76323028c3f5691f2'

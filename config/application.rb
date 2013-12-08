@@ -12,7 +12,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module EroRailsReplacerDbDev
+module ActressApp
   class Application < Rails::Application
     SiteName = "厳選女優画像"
     # Settings in config/environments/* take precedence over those specified here.

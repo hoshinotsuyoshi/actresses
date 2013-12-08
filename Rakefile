@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-EroRailsReplacerDbDev::Application.load_tasks
+ActressApp::Application.load_tasks

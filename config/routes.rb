@@ -1,4 +1,4 @@
-EroRailsReplacerDbDev::Application.routes.draw do
+ActressApp::Application.routes.draw do
   resources :tags
 
   resources :photos
