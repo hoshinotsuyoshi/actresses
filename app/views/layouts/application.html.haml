@@ -29,7 +29,7 @@
             %a.btn.btn-navbar(data-toggle="collapse" data-target="nav-collapse")
               %span.icon-bar
                 %p
-                  %a.brand{:href=>"/"}
+                  = link_to root_path,class: :brand do
                     %span{:itemprop=>"author",:itemscope=>"",:itemtype=>"http://schema.org/Person"}
                       %span{:itemprop=>"name"}
                         = ::ActressApp::Application::SiteName
