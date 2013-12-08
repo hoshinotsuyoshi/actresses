@@ -9,7 +9,7 @@ ActressApp::Application.routes.draw do
   root :to=>"actresses#index_photos"
 
   #site_map
-  get '/sitemap' => 'actresses#sitemap'
+  get '/sitemap' => 'sitemap#index'
 
   #photo page
   get '/actress/image/:name/:id' => 'photos#show_a_photo', as: :actress_photo

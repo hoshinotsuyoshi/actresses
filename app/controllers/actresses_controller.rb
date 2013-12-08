@@ -13,15 +13,6 @@ class ActressesController < ApplicationController
     @tags = Tag.all
   end
 
-  def sitemap
-    @actresses   = Actress.all
-    @tags        = Tag.all
-    @photos      = Photo.all
-    respond_to do |format|
-      format.xml
-    end
-  end
-
   # GET /actresses/1
   def show
   end
