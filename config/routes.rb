@@ -12,11 +12,11 @@ ActressApp::Application.routes.draw do
   get '/sitemap' => 'actresses#sitemap'
 
   #photo page
-  get '/actress/image/:name/:id' => 'photos#show_a_photo'
+  get '/actress/image/:name/:id' => 'photos#show_a_photo', as: :actress_photo
 
   #get '/actress/:name' => 'actresses#show_photos'
   get '/actress/:name' => 'actresses#show_photos', as: :actress_name
-  get '/tag/:name' => 'tags#show_photos'
+  get '/tag/:name' => 'tags#show_photos', as: :tag_name
 
   #get '/admi' => 'actresses#admin'
   get '/admi' => 'actresses#admin'

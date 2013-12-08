@@ -4,7 +4,8 @@
   %li{:class=>("disabled" if page.zero? )}
     - if page.zero?
     - else
-      %a{:href=>"/tag/#{@tag.name}?page=#{page-1}"}　前へ　
+      = link_to tag_name_path(@tag.name,page: "#{page-1}") do
+        　前へ　
 
   %li{:class=>("disabled" if page.zero? )}
     = "#{page+1} / #{@tag.page_size.to_s}ページ"
@@ -12,5 +13,6 @@
   %li{:class=>("disabled" if @tag.page_size - 1 == page )}
     - if @tag.page_size - 1 == page
     - else 
-      %a{:href=>"/tag/#{@tag.name}?page=#{page+1}"}　次へ　
+      = link_to tag_name_path(@tag.name,page: "#{page+1}") do
+        　次へ　
 

@@ -5,7 +5,8 @@
   %li{:class=>("disabled" if photo_index.zero? )}
     - if photo_index.zero?
     - else
-      %a{:href=>"/actress/image/#{@photo.actress.name}/#{@photo.actress.photos_sort_by_points[photo_index-1].id}"}　前へ　
+      = link_to actress_photo_path(@photo.actress.name,@photo.actress.photos_sort_by_points[photo_index-1].id) do
+        　前へ　
 
   %li{:class=>("disabled")}
     = "#{@photo.actress.name} 人気順 #{photo_index+1} / #{photo_size}枚目"
@@ -13,10 +14,11 @@
   %li{:class=>("disabled" if photo_size - 1 == photo_index )}
     - if photo_size - 1 == photo_index
     - else 
-      %a{:href=>"/actress/image/#{@photo.actress.name}/#{@photo.actress.photos_sort_by_points[photo_index+1].id}"}　次へ　
+      = link_to actress_photo_path(@photo.actress.name,@photo.actress.photos_sort_by_points[photo_index+1].id) do
+        　次へ　
 
 %p
-  %a{:href=>"/actress/#{@photo.actress.name}?page=#{(photo_index.to_f/8).to_i}"}
+  = link_to actress_name_path(@photo.actress.name,page: "#{(photo_index.to_f/8).to_i}") do
     %button{:class=>"btn",:type=>"submit"}
       = "#{@photo.actress.name} の画像一覧"
 %p

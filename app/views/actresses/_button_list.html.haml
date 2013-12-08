@@ -17,15 +17,12 @@
   %h3 他のタレント画像
 
 %p
-  %a{:href=>"/?full=true"}
-    %button{:class=>"btn btn-large btn-block",:type=>"button"}
-      = "画像つきで全部見る（#{@actresses.size}人）"
 - @actresses.each do |a|
   = link_to actress_name_path(a.name) do
     %button{:class=>"btn",:type=>"submit"}
       = "#{a.name}"
 %p
-  %a{:href=>"/?full=true"}
+  = link_to root_path(full: :true)do
     %button{:class=>"btn btn-large btn-block",:type=>"button"}
       = "画像つきで全部見る（#{@actresses.size}人）"
 

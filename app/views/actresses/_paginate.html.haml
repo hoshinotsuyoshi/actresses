@@ -4,7 +4,8 @@
   %li{:class=>("disabled" if page.zero? )}
     - if page.zero?
     - else
-      %a{:href=>"/actress/#{@actress.name}?page=#{page-1}"}　前へ　
+      = link_to actress_name_path(@actress.name,page:"#{page-1}") do
+        　前へ　
 
   %li{:class=>("disabled" if page.zero? )}
     = "#{page+1} / #{@actress.page_size.to_s}ページ"
@@ -12,5 +13,6 @@
   %li{:class=>("disabled" if @actress.page_size - 1 == page )}
     - if @actress.page_size - 1 == page
     - else 
-      %a{:href=>"/actress/#{@actress.name}?page=#{page+1}"}　次へ　
+      = link_to actress_name_path(@actress.name,page:"#{page+1}") do
+        　次へ　
 
