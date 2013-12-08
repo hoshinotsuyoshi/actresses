@@ -22,10 +22,8 @@ class ActressesController < ApplicationController
     @actress = Actress.where(:name=>params[:name]).first
     render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@actress
     #301
-    #redirect_to "/actress/#{@actress.name}",status: 301 and return if params[:page] == "0" 
     redirect_to actress_name_path(@actress.name),status: 301 and return if params[:page] == "0" 
     #302
-    #redirect_to "/actress/#{@actress.name}" and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
     redirect_to actress_name_path(@actress.name) and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
 
     @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}ページ目"
