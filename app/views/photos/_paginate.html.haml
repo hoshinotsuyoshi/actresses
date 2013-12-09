@@ -5,7 +5,7 @@
   %li{:class=>("disabled" if photo_index.zero? )}
     - if photo_index.zero?
     - else
-      = link_to actress_photo_path(@photo.actress.name,@photo.actress.photos_sort_by_points[photo_index-1].id) do
+      = link_to actress_photo_path(@photo.actress,@photo.actress.photos_sort_by_points[photo_index-1].id) do
         　前へ　
 
   %li{:class=>("disabled")}
@@ -14,7 +14,7 @@
   %li{:class=>("disabled" if photo_size - 1 == photo_index )}
     - if photo_size - 1 == photo_index
     - else 
-      = link_to actress_photo_path(@photo.actress.name,@photo.actress.photos_sort_by_points[photo_index+1].id) do
+      = link_to actress_photo_path(@photo.actress,@photo.actress.photos_sort_by_points[photo_index+1].id) do
         　次へ　
 
 %p

@@ -4,7 +4,7 @@
   %li{:class=>("disabled" if page.zero? )}
     - if page.zero?
     - else
-      = link_to actress_name_path(@actress.name,page:"#{page-1}") do
+      = link_to actress_name_path(@actress,page:"#{page-1}") do
         　前へ　
 
   %li{:class=>("disabled" if page.zero? )}
@@ -13,6 +13,6 @@
   %li{:class=>("disabled" if @actress.page_size - 1 == page )}
     - if @actress.page_size - 1 == page
     - else 
-      = link_to actress_name_path(@actress.name,page:"#{page+1}") do
+      = link_to actress_name_path(@actress,page:"#{page+1}") do
         　次へ　
 

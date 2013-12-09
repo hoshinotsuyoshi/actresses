@@ -32,7 +32,7 @@
     - (params[:page].to_i*8).upto((params[:page].to_i*8) +8 - 1) do |i|
       - if photo = @actress.photos_sort_by_points[i]
         .span5
-          %a{:href=>"/actress/image/#{@actress.name}/#{photo.id}",:target=>"blank"}
+          = link_to actress_photo_path(@actress,photo),target: :blank do
             - if i == 0
               %img{:src=>photo.url,:alt=>"#{@actress.name}",:width=>"40%",:itemprop=>"image"}
             - if i >= 1
@@ -65,7 +65,7 @@
 
 - if !params[:page].to_i.zero?
   = content_for :link_rel_prev do
-    = "/actress/#{@actress.name}/?page=#{params[:page].to_i - 1}"
+    = actress_name_path(@actress,page:"#{params[:page].to_i - 1}")
 - if @actress.page_size - 1 > params[:page].to_i
   = content_for :link_rel_next do
-    = "/actress/#{@actress.name}/?page=#{params[:page].to_i + 1}"
+    = actress_name_path(@actress,page:"#{params[:page].to_i + 1}")

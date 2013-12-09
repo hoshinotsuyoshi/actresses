@@ -9,13 +9,13 @@
   - @uls.times do |i|
     %ul.thumbnails
       - (i*@lis).upto(i*@lis+@lis-1) do |n|
-        - @a = @actress.similars[n]
-        - if @a
+        - actress = @actress.similars[n]
+        - if actress
           %li.span2
-            = link_to actress_name_path(@a.name),{:class=>"thumnail"} do
-              %img{:src=>"#{@a.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a.name}",:title=>"#{@a.name}"}
-            = link_to actress_name_path(@a.name) do
-              = @a.name + " #{@a.photos.size.to_s}枚"
+            = link_to actress_name_path(actress),{:class=>"thumnail"} do
+              %img{:src=>"#{actress.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{actress.name}",:title=>"#{actress.name}"}
+            = link_to actress_name_path(actress) do
+              = actress.name + " #{actress.photos.size.to_s}枚"
 
 - if request.path=="/" 
   = render :partial => "what_new"
@@ -32,13 +32,13 @@
 - @uls.times do |i|
   %ul.thumbnails
     - (i*@lis).upto(i*@lis+@lis-1) do |n|
-      - @a = @actresses[n]
-      - if @a
+      - actress = @actresses[n]
+      - if actress
         %li.span2
-          = link_to actress_name_path(@a.name),{:class=>"thumnail"} do
-            %img{:src=>"#{@a.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{@a.name}",:title=>"#{@a.name}"}
-          = link_to actress_name_path(@a.name) do
-            = @a.name + " #{@a.photos.size.to_s}枚"
+          = link_to actress_name_path(actress),{:class=>"thumnail"} do
+            %img{:src=>"#{actress.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{actress.name}",:title=>"#{actress.name}"}
+          = link_to actress_name_path(actress) do
+            = actress.name + " #{actress.photos.size.to_s}枚"
 
 - if request.path=="/" 
   = render :partial => "button_list"

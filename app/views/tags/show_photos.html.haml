@@ -32,13 +32,13 @@
     - (params[:page].to_i*8).upto((params[:page].to_i*8) +8 - 1) do |i|
       - if photo = @tag.photos_sort_by_points[i]
         .span5
-          %a{:href=>"/actress/image/#{photo.actress.name}/#{photo.id}",:target=>"blank"}
+          = link_to actress_photo_path(photo.actress,photo),target: :blank do
             - if i == 0
               %img{:src=>photo.url,:alt=>"#{@tag.name},#{photo.actress.name}",:width=>"40%",:itemprop=>"image"}
             - if i >= 1
               %img{:src=>photo.url,:alt=>"#{@tag.name},#{photo.actress.name}",:width=>"40%"}
           %button{:class=>"btn",:type=>"button"}
-            %a{:href=>"/actress/#{photo.actress.name}"}
+            = link_to actress_name_path(photo.actress) do
               = photo.actress.name
           %p
 
