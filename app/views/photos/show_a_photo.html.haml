@@ -1,11 +1,11 @@
 -# coding: utf-8
 - photo_index = @photo.actress.photos_sort_by_points.index(@photo)
 %p
-  = link_to actress_name_path(@photo.actress,page: "#{(photo_index.to_f/8).to_i}") do
+  = link_to actress_path(@photo.actress,page: "#{(photo_index.to_f/8).to_i}") do
     %button{:class=>"btn",:type=>"submit"}
       = "#{@photo.actress.name} の画像一覧"
 
-%h2="#{@photo.actress.name}の画像" if @photo.actress.name
+%h2="#{@photo.actress.name}の画像" if @photo.actress
 
 -# photos
 .container-fluid

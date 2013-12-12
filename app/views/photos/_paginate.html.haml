@@ -18,7 +18,7 @@
         　次へ　
 
 %p
-  = link_to actress_name_path(@photo.actress.name,page: "#{(photo_index.to_f/8).to_i}") do
+  = link_to actress_path(@photo.actress,page: "#{(photo_index.to_f/8).to_i}") do
     %button{:class=>"btn",:type=>"submit"}
       = "#{@photo.actress.name} の画像一覧"
 %p

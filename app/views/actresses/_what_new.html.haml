@@ -4,7 +4,7 @@
       - Photo.table(:latest).sort_by{|t|t[:date]}.reverse.each do |t|
         - day = Time.parse(t[:date]) + (60*60*9) #tokyo
         %li
-          = link_to actress_name_path(t[:name]) do
+          = link_to actress_path(t[:name]) do
             %u
               = "#{day.month}/#{day.day}"
               = "「#{t[:name]}」#{t[:size]}枚追加！"

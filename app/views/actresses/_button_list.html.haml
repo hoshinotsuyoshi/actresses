@@ -15,7 +15,7 @@
 
 %p
 - @actresses.each do |a|
-  = link_to actress_name_path(a.name) do
+  = link_to actress_path(a.name) do
     %button{:class=>"btn",:type=>"submit"}
       = "#{a.name}"
 %p

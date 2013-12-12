@@ -12,9 +12,9 @@
         - actress = @actress.similars[n]
         - if actress
           %li.span2
-            = link_to actress_name_path(actress),{:class=>"thumnail"} do
+            = link_to actress,class: :thumnail do
               %img{:src=>"#{actress.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{actress.name}",:title=>"#{actress.name}"}
-            = link_to actress_name_path(actress) do
+            = link_to actress do
               = actress.name + " #{actress.photos.size.to_s}枚"
 
 - if request.path=="/" 
@@ -35,9 +35,9 @@
       - actress = @actresses[n]
       - if actress
         %li.span2
-          = link_to actress_name_path(actress),{:class=>"thumnail"} do
+          = link_to actress,class: :thumnail do
             %img{:src=>"#{actress.thumbnail_rand}",:onerror=>"this.src='/assets/no_image.gif';this.width='128';this.height='128';this.style.left=0;",:style=>"left:0px;",:alt=>"#{actress.name}",:title=>"#{actress.name}"}
-          = link_to actress_name_path(actress) do
+          = link_to actress do
             = actress.name + " #{actress.photos.size.to_s}枚"
 
 - if request.path=="/" 

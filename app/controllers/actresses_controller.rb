@@ -1,6 +1,6 @@
 # coding: utf-8
 class ActressesController < ApplicationController
-  before_action :set_actress, only: [:show, :edit, :update, :destroy]
+  before_action :set_actress, only: [:edit, :update, :destroy]
 
   # GET /actresses
   def index
@@ -13,18 +13,14 @@ class ActressesController < ApplicationController
     @tags = Tag.all
   end
 
-  # GET /actresses/1
   def show
-  end
-
-  def show_photos
     @actresses = Actress.display.released.to_a
-    @actress = Actress.where(:name=>params[:name]).first
+    @actress = Actress.find(params[:id])
     render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@actress
     #301
-    redirect_to actress_name_path(@actress.name),status: 301 and return if params[:page] == "0" 
+    redirect_to @actress,status: 301 and return if params[:page] == "0" 
     #302
-    redirect_to actress_name_path(@actress.name) and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
+    redirect_to @actress and return if !params[:page].nil? && !params[:page].to_i.between?(1,@actress.page_size-1)
 
     @title = "#{@actress.name}の画像 全#{@actress.photos.released.size.to_s}枚#{params[:page].to_i+1}ページ目"
     @tags = Tag.all

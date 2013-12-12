@@ -3,7 +3,8 @@ ActressApp::Application.routes.draw do
 
   resources :photos
 
-  resources :actresses
+  get '/actress/:id' => 'actresses#show', as: :actress
+  resources :actresses , except: [:show]
 
   #top page
   root :to=>"actresses#index_photos"
@@ -14,8 +15,6 @@ ActressApp::Application.routes.draw do
   #photo page
   get '/actress/image/:name/:id' => 'photos#show_a_photo', as: :actress_photo
 
-  #get '/actress/:name' => 'actresses#show_photos'
-  get '/actress/:name' => 'actresses#show_photos', as: :actress_name
   get '/tag/:name' => 'tags#show_photos', as: :tag_name
 
   #get '/admi' => 'actresses#admin'
