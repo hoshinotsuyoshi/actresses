@@ -1,0 +1,8 @@
+#!/usr/bin/env /usr/local/repos/actress-app/bin/rails runner
+
+#usage: bundle exec rails runner bin/db_delete_all
+
+Actress.delete_all
+Photo.delete_all
+Tag.delete_all
+
