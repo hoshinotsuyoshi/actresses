@@ -1,5 +1,6 @@
 ActressApp::Application.routes.draw do
-  resources :tags
+  get '/tag/:name' => 'tags#show', as: :tag
+  resources :tags , except: [:show]
 
   resources :photos
 
@@ -15,8 +16,6 @@ ActressApp::Application.routes.draw do
   #photo page
   #get '/actress/image/:name/:id' => 'photos#show_a_photo', as: :actress_photo
   get '/actress/image/:a_id/:p_id' => 'photos#photo', as: :actress_photo
-
-  get '/tag/:name' => 'tags#show_photos', as: :tag_name
 
   #get '/admi' => 'actresses#admin'
   get '/admi' => 'admin#index', as: :admin
