@@ -1,0 +1,12 @@
+#!/usr/bin/env /usr/local/repos/actress-app/bin/rails runner
+
+#usage: bundle exec rails runner bin/__FILE__
+
+Tag.all.each do |t|
+  new = Tag.new(name: t.name)
+  new.text = t.text
+  new.actress_ids = t.actress_ids.select{|id|!(id.to_s.match /[\da-f]{24}/)}
+  Tag.delete_all(name: t.name)
+  new.save
+end
+

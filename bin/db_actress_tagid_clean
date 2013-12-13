@@ -1,0 +1,9 @@
+#!/usr/bin/env /usr/local/repos/actress-app/bin/rails runner
+
+#usage: bundle exec rails runner bin/__FILE__
+
+Actress.all.each do |a|
+  a.tag_ids = a.tag_ids.select{|id|!(id.to_s.match /[\da-f]{24}/)}
+  a.save
+end
+
