@@ -4,7 +4,7 @@ class TagsController < ApplicationController
 
   def show
     @actresses = Actress.display.released.to_a
-    @tag = Tag.where(:name=>params[:name]).first
+    @tag = Tag.find(params[:id])
     render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@tag
     @tags = Tag.all
     redirect_to @tag if !params[:page].nil? && !params[:page].to_i.between?(1,@tag.page_size-1)
@@ -66,6 +66,6 @@ class TagsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params.require(:tag).permit(:name,:text)
+      params.require(:tag).permit(:id,:text)
     end
 end

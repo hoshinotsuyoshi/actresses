@@ -1,5 +1,5 @@
 ActressApp::Application.routes.draw do
-  get '/tag/:name' => 'tags#show', as: :tag
+  get '/tag/:id' => 'tags#show', as: :tag
   resources :tags , except: [:show]
 
   resources :photos
