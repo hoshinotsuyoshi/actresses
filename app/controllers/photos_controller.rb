@@ -2,11 +2,11 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
-  def show_a_photo
-    @tags = Tag.all
+  def photo
+    @tags      = Tag.all
     @actresses = Actress.display.released.to_a
-    @actress = Actress.where(:name=>params[:name]).first
-    @photo = Photo.where(:id=>params[:id]).first
+    @actress   = Actress.find(params[:a_id])
+    @photo     = Photo.find(params[:p_id])
     render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@photo
     @title = "#{@photo.actress.name}の画像 全#{@photo.actress.photos.released.size.to_s}枚 No.#{@photo.actress.photos_sort_by_release_date.index(@photo)+1}"
     if Rails.env.development?
@@ -69,7 +69,7 @@ class PhotosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
-      @photo = Photo.find(params[:id])
+      @photo = Photo.find(params[:p_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -13,7 +13,8 @@ ActressApp::Application.routes.draw do
   get '/sitemap' => 'sitemap#index'
 
   #photo page
-  get '/actress/image/:name/:id' => 'photos#show_a_photo', as: :actress_photo
+  #get '/actress/image/:name/:id' => 'photos#show_a_photo', as: :actress_photo
+  get '/actress/image/:a_id/:p_id' => 'photos#photo', as: :actress_photo
 
   get '/tag/:name' => 'tags#show_photos', as: :tag_name
 
