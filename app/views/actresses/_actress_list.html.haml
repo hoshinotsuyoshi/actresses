@@ -25,14 +25,14 @@
   %h3 おすすめ女優
 - else
   %h3 ピックアップ
-- @actresses = @actresses.sort_by{rand}
+- @actresses = @actresses.sort_by{rand} if @actresses
 -# トップページなら全部、それ以外なら6個
 - @lis = request.path=="/" ? 6  : 2
 - @uls = request.path=="/" ? @actresses.size / (params["full"] ? 6 : 18)  : 1
 - @uls.times do |i|
   %ul.thumbnails
     - (i*@lis).upto(i*@lis+@lis-1) do |n|
-      - actress = @actresses[n]
+      - actress = @actresses[n] if @actresses
       - if actress
         %li.span2
           = link_to actress,class: :thumnail do

@@ -14,12 +14,13 @@
 %h3 全てのタレント画像
 
 %p
-- @actresses.each do |actress|
-  = link_to actress do
-    %button{:class=>"btn",:type=>"submit"}
-      = "#{actress.name}"
+- if @actresses
+  - @actresses.each do |actress|
+    = link_to actress do
+      %button{:class=>"btn",:type=>"submit"}
+        = "#{actress.name}"
 %p
   = link_to root_path(full: :true)do
     %button{:class=>"btn btn-large btn-block",:type=>"button"}
-      = "画像つきで全部見る（#{@actresses.size}人）"
+      = "画像つきで全部見る（#{@actresses.try :size}人）"
 

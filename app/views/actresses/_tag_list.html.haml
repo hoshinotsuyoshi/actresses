@@ -3,9 +3,10 @@
 
 %p
 
-- @tags.each do |tag|
-  = link_to tag do
-    %button{:class=>"btn",:type=>"submit"}
-      = "#{tag.name}"
+- if @tags
+  - @tags.each do |tag|
+    = link_to tag do
+      %button{:class=>"btn",:type=>"submit"}
+        = "#{tag.name}"
 %p
 
