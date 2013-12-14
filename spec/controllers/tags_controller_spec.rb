@@ -20,6 +20,10 @@ require 'spec_helper'
 
 describe TagsController do
 
+  before{
+    Tag.delete_all
+  }
+
   # This should return the minimal set of attributes required to create a valid
   # Tag. As you add validations to Tag, be sure to
   # adjust the attributes here as well.
