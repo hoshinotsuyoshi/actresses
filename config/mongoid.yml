@@ -6,23 +6,15 @@ development:
       password: <%= ENV['MONGOHQ_DB_URL'].split(':')[2].split('@').first %>
       hosts:
         - dharma.mongohq.com:10082
-      # hosts:
-        - localhost:27017
       options:
   options:
 test:
   sessions:
     default:
-      database:
-        - actress_app_test
+      database: actress_app_test
       hosts:
         - localhost:27017
       options:
-        consistency: :strong
-        # In the test environment we lower the retries and retry interval to
-        # low amounts for fast failures.
-        max_retries: 1
-        retry_interval: 0
 production:
   sessions:
     default:
