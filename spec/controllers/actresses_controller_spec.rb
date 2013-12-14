@@ -19,6 +19,9 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe ActressesController do
+  before{
+    Actress.delete_all
+  }
 
   # This should return the minimal set of attributes required to create a valid
   # Actress. As you add validations to Actress, be sure to
