@@ -12,7 +12,7 @@ describe ActressesController do
     end
 
     it "routes to #show" do
-      get("/actresses/1").should route_to("actresses#show", :id => "1")
+      get("/actress/1").should route_to("actresses#show", :id => "1")
     end
 
     it "routes to #edit" do

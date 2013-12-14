@@ -12,7 +12,7 @@ describe TagsController do
     end
 
     it "routes to #show" do
-      get("/tags/1").should route_to("tags#show", :id => "1")
+      get("/tag/1").should route_to("tags#show", :id => "1")
     end
 
     it "routes to #edit" do
