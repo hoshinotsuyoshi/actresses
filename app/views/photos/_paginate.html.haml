@@ -1,24 +1,22 @@
 -# paginate
 %ul.pager
-  - photo_index = @photo.actress.photos_sort_by_points.index(@photo)
-  - photo_size  = @photo.actress.photos.released.size
-  %li{:class=>("disabled" if photo_index.zero? )}
-    - if photo_index.zero?
+  %li{:class=>("disabled" if @photo.index.zero? )}
+    - if @photo.index.zero?
     - else
-      = link_to actress_photo_path(@photo.actress,@photo.actress.photos_sort_by_points[photo_index-1].id) do
+      = link_to actress_photo_path(@photo.actress,@photo.actress.photos_sort_by_points[@photo.index-1].id) do
         　前へ　
 
   %li{:class=>("disabled")}
-    = "#{@photo.actress.name} 人気順 #{photo_index+1} / #{photo_size}枚目"
+    = "#{@photo.actress.name} 人気順 #{@photo.index+1} / #{@photo.actress_photos_size}枚目"
 
-  %li{:class=>("disabled" if photo_size - 1 == photo_index )}
-    - if photo_size - 1 == photo_index
+  %li{:class=>("disabled" if @photo.actress_photos_size - 1 == @photo.index )}
+    - if @photo.actress_photos_size - 1 == @photo.index
     - else 
-      = link_to actress_photo_path(@photo.actress,@photo.actress.photos_sort_by_points[photo_index+1].id) do
+      = link_to actress_photo_path(@photo.actress,@photo.actress.photos_sort_by_points[@photo.index+1].id) do
         　次へ　
 
 %p
-  = link_to actress_path(@photo.actress,page: "#{(photo_index.to_f/8).to_i}") do
+  = link_to actress_path(@photo.actress,page: "#{(@photo.index.to_f/8).to_i}") do
     %button{:class=>"btn",:type=>"submit"}
       = "#{@photo.actress.name} の画像一覧"
 %p

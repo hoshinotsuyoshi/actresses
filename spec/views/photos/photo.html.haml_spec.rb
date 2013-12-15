@@ -3,14 +3,12 @@ require 'spec_helper'
 
 describe "photos/photo" do
   before(:each) do
-    Actress.delete_all
-    Photo.delete_all
-    actress = Actress.create!(name: "ActressName",text: "Text",display: true, release_date: Time.mktime(1970,1,1))
-    photo   = Photo.create!(path: "Path",big_url: "big_url.jpg", actress: actress, release_date: Time.mktime(1970,1,1))
-    assign(:actress, actress)
-    assign(:photo, photo)
-    assign(:actresses, [actress])
-    assign(:photos, [photo])
+    mock_actress.stub!(:photos).and_return([mock_photo])
+
+    assign(:actress, mock_actress)
+    assign(:photo, mock_photo)
+    assign(:actresses, [mock_actress])
+    assign(:photos, [mock_photo])
     assign(:tags, [stub_model(Tag,name: "Name",text: "Text")])
   end
 
@@ -20,8 +18,27 @@ describe "photos/photo" do
     assert_select "img[src=?]", "big_url.jpg",count: 1
   end
   
-  after(:each) do
-    Actress.delete_all
-    Photo.delete_all
+  protected
+  def mock_actress
+    @mock_actress ||= mock_model(Actress, {
+      name: "ActressName",
+      text: "Text",
+      display: true,
+      release_date: Time.mktime(1970,1,1),
+      similars: [],
+      thumbnail_rand: ["url.jpg"],
+    })
   end
+
+  def mock_photo
+    @mock_photo ||= mock_model(Photo,{
+      path: "Path",
+      big_url: "big_url.jpg",
+      actress: mock_actress,
+      actress_photos_size: 1,
+      release_date: Time.mktime(1970,1,1),
+      index: 0,
+    })
+  end
+
 end

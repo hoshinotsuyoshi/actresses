@@ -17,3 +17,17 @@ describe Photo do
     Photo.table
   end
 end
+
+describe Photo do
+  before{
+    @photo = Photo.create!
+  }
+  it "#index" do
+    @photo.stub_chain(:actress,:photos_sort_by_points,:index).with(@photo).and_return("ok")
+    expect(@photo.index).to eq "ok"
+  end
+  it "#actress_photos_size" do
+    @photo.stub_chain(:actress,:photos,:released,:size).and_return("ok")
+    expect(@photo.actress_photos_size).to eq "ok"
+  end
+end

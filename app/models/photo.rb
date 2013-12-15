@@ -20,6 +20,14 @@ class Photo
     end
   end
 
+  def index
+    actress.photos_sort_by_points.index(self)
+  end
+
+  def actress_photos_size
+    actress.photos.released.size
+  end
+
   def self.table(sym=:latest)
     self.group(sym).map{|k,v|{:name=>k[0].name,:date=>k[1].to_s,:size=>v.size}}
   end
