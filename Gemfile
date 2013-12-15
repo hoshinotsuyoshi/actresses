@@ -19,7 +19,7 @@ gem 'rspec-rails', :group => [:test, :development]
 group :test do
   gem 'database_cleaner'
 end
-gem "mongoid-rspec"
+gem "mongoid-rspec" ,'1.10.0'
 gem "factory_girl_rails"
 
 # Use SCSS for stylesheets
