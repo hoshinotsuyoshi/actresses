@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe "photos/photo" do
   before(:each) do
-    mock_actress.stub(:photos).and_return([mock_photo])
+    mock_actress.stub!(:photos).and_return([mock_photo])
 
     assign(:actress, mock_actress)
     assign(:photo, mock_photo)

@@ -23,25 +23,25 @@ describe Actress do
     @actress.id.should eq(@actress.name)
   end
 
-  #FIXME? (we can use stub_chain in order to use should_receive?)
   it "#thumbnail_rand" do
-    @actress.stub_chain(:photos_sort_by_points,:map,:[])
-    @actress.thumbnail_rand
+    @actress.stub_chain(:photos_sort_by_points,:map,:[]).and_return("ok")
+    expect(@actress.thumbnail_rand).to eq "ok"
   end
 
   it "photos_sort_by_points" do
-    @actress.stub_chain(:photos,:released,:sort_by,:reverse)
-    @actress.photos_sort_by_points
+    @actress.stub_chain(:photos,:released,:sort_by,:reverse).and_return("ok")
+    expect(@actress.photos_sort_by_points).to eq "ok"
   end
 
   it "photos_sort_by_release_date" do
-    @actress.stub_chain(:photos,:released,:sort_by)
-    @actress.photos_sort_by_release_date
+    @actress.stub_chain(:photos,:released,:sort_by).and_return("ok")
+    expect(@actress.photos_sort_by_release_date).to eq "ok"
   end
 
   it "#page_size" do
-    @actress.stub_chain(:photos,:released,:size,:to_f,:/,:ceil)
-    @actress.page_size
+    @actress.stub_chain(:photos,:released,:size,:to_f,:/,:ceil).and_return("ok")
+
+    expect(@actress.page_size).to eq "ok"
   end
 
 end

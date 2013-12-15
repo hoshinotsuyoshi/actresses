@@ -11,10 +11,9 @@ describe Photo do
 end
 
 describe Photo do
-  #FIXME? (we can use stub_chain in order to use should_receive?)
   it "Photo#table" do
-    Photo.stub_chain(:group, :map)
-    Photo.table
+    Photo.stub_chain(:group, :map).and_return("ok")
+    expect(Photo.table).to eq "ok"
   end
 end
 

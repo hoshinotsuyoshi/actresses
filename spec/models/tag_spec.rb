@@ -14,20 +14,19 @@ describe Tag do
     @tag.id.should eq(@tag.name)
   end
 
-  #FIXME? (we can use stub_chain in order to use should_receive?)
   it "#photos" do
-    @tag.stub_chain(:actresses,:to_a,:map,:flatten)
-    @tag.photos
+    @tag.stub_chain(:actresses,:to_a,:map,:flatten).and_return("ok")
+    expect(@tag.photos).to eq "ok"
   end
 
   it "#photos_sort_by_points" do
-    @tag.stub_chain(:photos,:sort_by,:reverse)
-    @tag.photos
+    @tag.stub_chain(:photos,:sort_by,:reverse).and_return("ok")
+    expect(@tag.photos_sort_by_points).to eq "ok"
   end
 
   it "#page_size" do
-    @tag.stub_chain(:photos,:size,:to_f,:/,:ceil)
-    @tag.page_size
+    @tag.stub_chain(:photos,:size,:to_f,:/,:ceil).and_return("ok")
+    expect(@tag.page_size).to eq "ok"
   end
 
 end
