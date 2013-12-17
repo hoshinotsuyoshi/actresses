@@ -65,7 +65,6 @@ gem 'eventmachine'
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 
 group :development do
-  gem 'debugger'
   gem 'shotgun'
 end
 
