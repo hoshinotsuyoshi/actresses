@@ -17,6 +17,7 @@ gem 'newrelic_rpm'
 # test
 gem 'rspec-rails', :group => [:test, :development]
 group :test do
+  gem 'coveralls', require: false
   gem 'database_cleaner'
 end
 gem "mongoid-rspec" ,'1.10.0'
