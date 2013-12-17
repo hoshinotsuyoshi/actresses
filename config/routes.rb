@@ -23,6 +23,9 @@ ActressApp::Application.routes.draw do
   post '/regist_similar' => 'admin#regist_similar'
   post '/regist_tag' => 'admin#regist_tag'
 
+  post '/api/validate' => 'api#validate'
+  #get '/api/validate' => 'api#validate'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
