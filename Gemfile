@@ -60,7 +60,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 #
-gem 'eventmachine'
 
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
 
@@ -76,9 +75,4 @@ gem 'haml-rails'
 # use bootstrap
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
-
-# resque and worker-daemon
-gem 'resque', :git => 'git://github.com/resque/resque.git'
-#gem 'resque-web' , :require => 'resque-web'
-gem 'daemon-spawn', :require => 'daemon_spawn'
 
