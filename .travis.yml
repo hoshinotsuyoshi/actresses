@@ -7,6 +7,7 @@ services: mongodb
 before_script:
   - gem install bundler
 script:
+  - cp -f config/travis.mongoid.yml config/mongoid.yml 
   - bundle exec rspec -c
 notifications:
   emails:
