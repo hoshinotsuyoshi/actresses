@@ -3,7 +3,7 @@ class Api
     Response.build opt
   end
   class Response
-    def self.build opt
+    def self.build opt=nil
       #(@body ||= {})[:error] = ""
       @body ||= {}
     end
