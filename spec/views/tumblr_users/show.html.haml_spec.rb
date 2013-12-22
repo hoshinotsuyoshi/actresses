@@ -7,7 +7,8 @@ describe "tumblr_users/show" do
       :consumer_key => "Consumer Key",
       :consumer_secret => "Consumer Secret",
       :oath_token => "Oath Token",
-      :oath_token_secret => "Oath Token Secret"
+      :oath_token_secret => "Oath Token Secret",
+      :spend => 1
     ))
   end
 
@@ -19,5 +20,6 @@ describe "tumblr_users/show" do
     rendered.should match(/Consumer Secret/)
     rendered.should match(/Oath Token/)
     rendered.should match(/Oath Token Secret/)
+    rendered.should match(/1/)
   end
 end

@@ -11,6 +11,7 @@ class Regist
       @release_date = arg[2]
       upload_or_not = !self.path_exist?(@uri)
       if upload_or_not
+        self.set_tumblr_user
         self.upload 
         self.scrape_photo_url
         self.db_save
@@ -25,15 +26,19 @@ class Regist
     return nil unless path
     Photo.where(path: path).size.zero?.!
   end
+  def self.set_tumblr_user
+    @tumblr_user = TumblrUser.attend
+  end
   def self.upload(content_type="image/jpeg")
-    mash = ::Tumblife.client.photo("#{TumblrHost}.tumblr.com",source: @uri)
-    @mash_id = mash.id 
+    @mash_id = @tumblr_user.upload(@uri)
+    #mash = ::Tumblife.client.photo("#{TumblrHost}.tumblr.com",source: @uri)
+    #@mash_id = mash.id 
   end
   def self.scrape_photo_url
     agent,c,img = ::Mechanize.new,0,[]
     while c < 20 and img.empty? do 
       sleep 4
-      agent.get  "http://#{TumblrHost}.tumblr.com/post/#{@mash_id.to_s}"
+      agent.get  "http://#{@tumblr_user.host}.tumblr.com/post/#{@mash_id.to_s}"
       xpath1 = '//*[@id="posts"]/li/section[@class="top media"]/img'
       xpath2 = '//*[@id="posts"]/li/section[@class="top media"]/a/img'
       if !(agent.page/(xpath1)).empty? 

@@ -7,6 +7,8 @@
     %th Consumer secret
     %th Oath token
     %th Oath token secret
+    %th Spend
+    %th Last spend
     %th
     %th
     %th
@@ -18,6 +20,8 @@
       %td= tumblr_user.consumer_secret
       %td= tumblr_user.oath_token
       %td= tumblr_user.oath_token_secret
+      %td= tumblr_user.spend
+      %td= tumblr_user.last_spend
       %td= link_to 'Show', tumblr_user
       %td= link_to 'Edit', edit_tumblr_user_path(tumblr_user)
       %td= link_to 'Destroy', tumblr_user, :method => :delete, :data => { :confirm => 'Are you sure?' }

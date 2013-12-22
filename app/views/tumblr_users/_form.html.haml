@@ -21,5 +21,11 @@
   .field
     = f.label :oath_token_secret
     = f.text_field :oath_token_secret
+  .field
+    = f.label :spend
+    = f.number_field :spend
+  .field
+    = f.label :last_spend
+    = f.datetime_select :last_spend
   .actions
     = f.submit 'Save'

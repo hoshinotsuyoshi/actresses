@@ -7,5 +7,7 @@ FactoryGirl.define do
     consumer_secret "MyString"
     oath_token "MyString"
     oath_token_secret "MyString"
+    spend 1
+    last_spend "2013-12-23 04:36:51"
   end
 end

@@ -5,4 +5,9 @@ class TumblrUser
   field :consumer_secret, type: String
   field :oath_token, type: String
   field :oath_token_secret, type: String
+  field :spend, type: Integer
+  field :last_spend, type: DateTime
+  def self.attend
+
+  end
 end

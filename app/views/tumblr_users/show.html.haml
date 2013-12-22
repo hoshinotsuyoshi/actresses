@@ -15,6 +15,12 @@
 %p
   %b Oath token secret:
   = @tumblr_user.oath_token_secret
+%p
+  %b Spend:
+  = @tumblr_user.spend
+%p
+  %b Last spend:
+  = @tumblr_user.last_spend
 
 = link_to 'Edit', edit_tumblr_user_path(@tumblr_user)
 \|
