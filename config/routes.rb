@@ -23,9 +23,6 @@ ActressApp::Application.routes.draw do
   post '/regist_similar' => 'admin#regist_similar'
   post '/regist_tag' => 'admin#regist_tag'
 
-  post '/api' => 'api#index'
-  #get '/api' => 'api#index'
-
   #resque sample
   post "job/regist_photo" => 'job#regist_photo', as: :job_regist_photo
   get "job/form" => 'job#form', as: :job_form

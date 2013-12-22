@@ -3,14 +3,13 @@ require 'mechanize'
 require "#{Rails.root}/app/models/tumblr_host" if Rails.env == "development"
 
 class RegistPhoto
-  @queue = :default
 
   def self.perform arg
     begin
       @actress_name = arg[0]
       @uri          = arg[1]
       @release_date = arg[2]
-      upload_or_not = !Api.path_exist?(@uri)
+      upload_or_not = !self.path_exist?(@uri)
       if upload_or_not
         self.upload 
         self.scrape_photo_url
@@ -22,6 +21,10 @@ class RegistPhoto
     end
   end
   private
+  def self.path_exist? path
+    return nil unless path
+    Photo.where(path: path).size.zero?.!
+  end
   def self.upload(content_type="image/jpeg")
     mash = ::Tumblife.client.photo("#{TumblrHost}.tumblr.com",source: @uri)
     @mash_id = mash.id 
