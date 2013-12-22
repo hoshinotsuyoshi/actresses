@@ -25,3 +25,9 @@
 # coveralls
 coverage
 .coveralls.yml
+
+# tumblr
+app/models/tumblr_host.rb
+
+# db
+config/development.mongoid.yml

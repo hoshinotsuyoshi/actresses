@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
-  def validate
-    @api = Api.create!
-    render json: @api
+  def index
+    @response = Api.create!(params)
+    render json: @response
   end
 end

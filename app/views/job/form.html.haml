@@ -1,0 +1,16 @@
+%h2 RegistPhoto
+= form_for "",html: {id: :dummy} do |f|
+  .field
+    = f.text_field :actress_name, placeholder: "ActressName"
+  .field
+    = f.text_field :release_date, placeholder: "2012-01-01"
+%hr 
+- 10.times do |i|
+  = form_for "",url: {action: :regist_photo,controller: :job},remote: true, html: {class: :ajax_trigger} do |f|
+    = f.hidden_field :actress_name
+    = f.hidden_field :release_date
+    %span.field
+      = f.text_field :path, placeholder: "http://example.com/jpg.jpg"
+    %span.actions
+      = f.submit 'Post'
+    #notice
