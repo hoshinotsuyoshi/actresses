@@ -9,8 +9,8 @@ class Photo
   field :release_date, type: DateTime
   field :point, type: Integer, :default => 0
 
-  scope :released   ,where(:release_date.lte => Time.now)
-  scope :unreleased ,where(:release_date.gt  => Time.now)
+  scope :released   ,where(:release_date.lte => Time.zone.now)
+  scope :unreleased ,where(:release_date.gt  => Time.zone.now)
 
   # 5days latest
   #worker(resque-web、rails3)だとbetween が使えない
