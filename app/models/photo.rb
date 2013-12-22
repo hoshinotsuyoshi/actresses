@@ -6,7 +6,7 @@ class Photo
   field :secure_url, type: String
   field :big_url, type: String
   belongs_to :actress, :class_name=> 'Actress'
-  field :release_date, type: DateTime
+  field :release_date, type: Time
   field :point, type: Integer, :default => 0
 
   scope :released   ,where(:release_date.lte => Time.zone.now)

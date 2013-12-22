@@ -6,7 +6,9 @@ class TumblrUser
   field :oath_token, type: String
   field :oath_token_secret, type: String
   field :spend, type: Integer
-  field :last_spend, type: DateTime
+  field :last_spend, type: Time
+  DailyMax = 75
+
   def self.attend
 
   end

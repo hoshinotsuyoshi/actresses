@@ -13,7 +13,7 @@ class Actress
 
   scope :display, where(:display=>"1")
 
-  field :release_date, type: DateTime
+  field :release_date, type: Time
   scope :released   ,where(:release_date.lte => Time.zone.now)
   scope :unreleased ,where(:release_date.gt  => Time.zone.now)
 
