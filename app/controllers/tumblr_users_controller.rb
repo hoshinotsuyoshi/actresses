@@ -1,4 +1,5 @@
 class TumblrUsersController < ApplicationController
+  before_action :forbid_production
   before_action :set_tumblr_user, only: [:show, :edit, :update, :destroy]
 
   # GET /tumblr_users
@@ -71,4 +72,9 @@ class TumblrUsersController < ApplicationController
     def tumblr_user_params
       params.require(:tumblr_user).permit(:host, :consumer_key, :consumer_secret, :oath_token, :oath_token_secret)
     end
+
+    def forbid_production
+      render :status => :forbidden, :text => "Forbidden fruit" and return if Rails.env.production?
+    end
+ 
 end
