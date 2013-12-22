@@ -1,5 +1,6 @@
 require 'tumblife'
 require 'mechanize'
+require "#{Rails.root}/app/models/tumblr_host"
 
 class RegistPhoto
   @queue = :default
