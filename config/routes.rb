@@ -1,4 +1,6 @@
 ActressApp::Application.routes.draw do
+  resources :tumblr_users
+
   get '/tag/:id' => 'tags#show', as: :tag
   resources :tags , except: [:show]
 

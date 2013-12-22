@@ -1,0 +1,25 @@
+= form_for @tumblr_user do |f|
+  - if @tumblr_user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tumblr_user.errors.count, "error")} prohibited this tumblr_user from being saved:"
+      %ul
+        - @tumblr_user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :host
+    = f.text_field :host
+  .field
+    = f.label :consumer_key
+    = f.text_field :consumer_key
+  .field
+    = f.label :consumer_secret
+    = f.text_field :consumer_secret
+  .field
+    = f.label :oath_token
+    = f.text_field :oath_token
+  .field
+    = f.label :oath_token_secret
+    = f.text_field :oath_token_secret
+  .actions
+    = f.submit 'Save'

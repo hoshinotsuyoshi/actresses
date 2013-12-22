@@ -1,0 +1,27 @@
+%h1 Listing tumblr_users
+
+%table
+  %tr
+    %th Host
+    %th Consumer key
+    %th Consumer secret
+    %th Oath token
+    %th Oath token secret
+    %th
+    %th
+    %th
+
+  - @tumblr_users.each do |tumblr_user|
+    %tr
+      %td= tumblr_user.host
+      %td= tumblr_user.consumer_key
+      %td= tumblr_user.consumer_secret
+      %td= tumblr_user.oath_token
+      %td= tumblr_user.oath_token_secret
+      %td= link_to 'Show', tumblr_user
+      %td= link_to 'Edit', edit_tumblr_user_path(tumblr_user)
+      %td= link_to 'Destroy', tumblr_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Tumblr user', new_tumblr_user_path

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Host:
+  = @tumblr_user.host
+%p
+  %b Consumer key:
+  = @tumblr_user.consumer_key
+%p
+  %b Consumer secret:
+  = @tumblr_user.consumer_secret
+%p
+  %b Oath token:
+  = @tumblr_user.oath_token
+%p
+  %b Oath token secret:
+  = @tumblr_user.oath_token_secret
+
+= link_to 'Edit', edit_tumblr_user_path(@tumblr_user)
+\|
+= link_to 'Back', tumblr_users_path
