@@ -24,3 +24,6 @@ production:
       hosts:
         - dharma.mongohq.com:10082
       options:
+  options:
+    use_utc: false
+    use_activesupport_time_zone: true
