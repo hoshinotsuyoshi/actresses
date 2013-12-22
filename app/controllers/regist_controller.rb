@@ -1,7 +1,7 @@
-class JobController < ApplicationController
-  def regist_photo
+class RegistController < ApplicationController
+  def photo
     opt = [params[:actress_name],params[:path],params[:release_date]]
-    hash = {result: RegistPhoto.perform(opt)}
+    hash = {result: Regist.perform(opt)}
     render json: hash, content_type: 'text/json' 
   end
   def form

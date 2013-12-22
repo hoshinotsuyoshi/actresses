@@ -2,7 +2,7 @@ require 'tumblife'
 require 'mechanize'
 require "#{Rails.root}/app/models/tumblr_host" if Rails.env == "development"
 
-class RegistPhoto
+class Regist
 
   def self.perform arg
     begin

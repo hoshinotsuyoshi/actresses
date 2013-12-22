@@ -24,8 +24,8 @@ ActressApp::Application.routes.draw do
   post '/regist_tag' => 'admin#regist_tag'
 
   #resque sample
-  post "job/regist_photo" => 'job#regist_photo', as: :job_regist_photo
-  get "job/form" => 'job#form', as: :job_form
+  post "regist/photo" => 'regist#photo', as: :regist_photo
+  get "regist/form" => 'regist#form', as: :regist_form
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
