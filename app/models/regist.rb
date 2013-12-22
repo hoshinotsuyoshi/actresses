@@ -1,6 +1,4 @@
-require 'tumblife'
 require 'mechanize'
-require "#{Rails.root}/app/models/tumblr_host" if Rails.env == "development"
 
 class Regist
 
@@ -31,8 +29,6 @@ class Regist
   end
   def self.upload(content_type="image/jpeg")
     @mash_id = @tumblr_user.upload(@uri)
-    #mash = ::Tumblife.client.photo("#{TumblrHost}.tumblr.com",source: @uri)
-    #@mash_id = mash.id 
   end
   def self.scrape_photo_url
     agent,c,img = ::Mechanize.new,0,[]

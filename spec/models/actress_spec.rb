@@ -1,7 +1,7 @@
 require 'spec_helper'
 describe Actress do
   it { should have_fields(:name, :_id, :text,).of_type(String) }
-  it { should have_fields(:release_date      ).of_type(DateTime) }
+  it { should have_fields(:release_date      ).of_type(Time) }
   it { should have_fields(:display           ).of_type(String).with_default_value_of "1" }
 
   it { should validate_uniqueness_of(:name) }

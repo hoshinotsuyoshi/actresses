@@ -2,7 +2,7 @@ require 'spec_helper'
 describe Photo do
   it { should have_fields(:path, :url, :secure_url, :big_url).of_type(String) }
   it { should belong_to(:actress)}
-  it { should have_fields(:release_date).of_type(DateTime) }
+  it { should have_fields(:release_date).of_type(Time) }
   it { should have_fields(:point).of_type(Integer).with_default_value_of 0 }
 
   #scope specs
