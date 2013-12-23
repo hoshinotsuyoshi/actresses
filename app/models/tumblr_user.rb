@@ -12,7 +12,7 @@ class TumblrUser
   ResetHour = 16
 
   def upload(uri)
-    mash = ::Tumblife.client.photo("#{TumblrHost}.tumblr.com",source: uri)
+    mash = ::Tumblife.client.photo("#{self.host}.tumblr.com",source: uri)
     self.spend += 1
     self.last_spend = Time.zone.now
     self.save
