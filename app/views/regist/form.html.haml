@@ -1,3 +1,16 @@
+%div{class: "panel-group",id: "accordion"}
+  %div{class: "panel panel-default"}
+    %div{class: "panel-heading"}
+      %h2{class: "panel-title"}
+        %a{:"data-toggle"=>"collapse",:"data-parent"=>"#accordion",href: "#collapseOne"}
+          + ActressList
+    %div{id: "collapseOne",class: "panel-collapse collapse in"}
+      %div{class: "panel-body"}
+        .cloud
+          - Actress.all.each do |actress|
+            %button{:class=>"btn actress_button",:type=>"submit"}
+              = "#{actress.name}"
+
 %h2 RegistForm
 = form_for "",html: {id: :dummy} do |f|
   .field
