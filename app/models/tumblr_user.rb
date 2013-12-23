@@ -4,8 +4,8 @@ class TumblrUser
   field :host, type: String
   field :consumer_key, type: String
   field :consumer_secret, type: String
-  field :oath_token, type: String
-  field :oath_token_secret, type: String
+  field :oauth_token, type: String
+  field :oauth_token_secret, type: String
   field :spend, type: Integer, default: 0
   field :last_spend, type: Time, default: Time.mktime(2012,6,1)
   DailyMax  = 75
@@ -50,8 +50,8 @@ class TumblrUser
     Tumblife.configure do |config|
       config.consumer_key       = self.consumer_key
       config.consumer_secret    = self.consumer_secret
-      config.oauth_token        = self.oath_token
-      config.oauth_token_secret = self.oath_token_secret
+      config.oauth_token        = self.oauth_token
+      config.oauth_token_secret = self.oauth_token_secret
     end
     self
   end

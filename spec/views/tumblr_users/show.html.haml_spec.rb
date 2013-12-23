@@ -6,8 +6,8 @@ describe "tumblr_users/show" do
       :host => "Host",
       :consumer_key => "Consumer Key",
       :consumer_secret => "Consumer Secret",
-      :oath_token => "Oath Token",
-      :oath_token_secret => "Oath Token Secret",
+      :oauth_token => "Oauth Token",
+      :oauth_token_secret => "Oauth Token Secret",
       :spend => 1
     ))
   end
@@ -18,8 +18,8 @@ describe "tumblr_users/show" do
     rendered.should match(/Host/)
     rendered.should match(/Consumer Key/)
     rendered.should match(/Consumer Secret/)
-    rendered.should match(/Oath Token/)
-    rendered.should match(/Oath Token Secret/)
+    rendered.should match(/Oauth Token/)
+    rendered.should match(/Oauth Token Secret/)
     rendered.should match(/1/)
   end
 end

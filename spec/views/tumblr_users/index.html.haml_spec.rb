@@ -7,16 +7,16 @@ describe "tumblr_users/index" do
         :host => "Host",
         :consumer_key => "Consumer Key",
         :consumer_secret => "Consumer Secret",
-        :oath_token => "Oath Token",
-        :oath_token_secret => "Oath Token Secret",
+        :oauth_token => "Oauth Token",
+        :oauth_token_secret => "Oauth Token Secret",
         :spend => 1
       ),
       stub_model(TumblrUser,
         :host => "Host",
         :consumer_key => "Consumer Key",
         :consumer_secret => "Consumer Secret",
-        :oath_token => "Oath Token",
-        :oath_token_secret => "Oath Token Secret",
+        :oauth_token => "Oauth Token",
+        :oauth_token_secret => "Oauth Token Secret",
         :spend => 1
       )
     ])
@@ -28,8 +28,8 @@ describe "tumblr_users/index" do
     assert_select "tr>td", :text => "Host".to_s, :count => 2
     assert_select "tr>td", :text => "Consumer Key".to_s, :count => 2
     assert_select "tr>td", :text => "Consumer Secret".to_s, :count => 2
-    assert_select "tr>td", :text => "Oath Token".to_s, :count => 2
-    assert_select "tr>td", :text => "Oath Token Secret".to_s, :count => 2
+    assert_select "tr>td", :text => "Oauth Token".to_s, :count => 2
+    assert_select "tr>td", :text => "Oauth Token Secret".to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2
   end
 end

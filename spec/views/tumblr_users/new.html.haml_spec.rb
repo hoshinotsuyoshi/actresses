@@ -6,8 +6,8 @@ describe "tumblr_users/new" do
       :host => "MyString",
       :consumer_key => "MyString",
       :consumer_secret => "MyString",
-      :oath_token => "MyString",
-      :oath_token_secret => "MyString",
+      :oauth_token => "MyString",
+      :oauth_token_secret => "MyString",
       :spend => 1
     ).as_new_record)
   end
@@ -20,8 +20,8 @@ describe "tumblr_users/new" do
       assert_select "input#tumblr_user_host[name=?]", "tumblr_user[host]"
       assert_select "input#tumblr_user_consumer_key[name=?]", "tumblr_user[consumer_key]"
       assert_select "input#tumblr_user_consumer_secret[name=?]", "tumblr_user[consumer_secret]"
-      assert_select "input#tumblr_user_oath_token[name=?]", "tumblr_user[oath_token]"
-      assert_select "input#tumblr_user_oath_token_secret[name=?]", "tumblr_user[oath_token_secret]"
+      assert_select "input#tumblr_user_oauth_token[name=?]", "tumblr_user[oauth_token]"
+      assert_select "input#tumblr_user_oauth_token_secret[name=?]", "tumblr_user[oauth_token_secret]"
       assert_select "input#tumblr_user_spend[name=?]", "tumblr_user[spend]"
     end
   end
