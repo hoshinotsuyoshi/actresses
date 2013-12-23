@@ -24,7 +24,7 @@ describe ActressesController do
     end
 
     it "routes to #update" do
-      put("/actresses/1").should route_to("actresses#update", :id => "1")
+      put("/actress/1").should route_to("actresses#update", :id => "1")
     end
 
     it "routes to #destroy" do

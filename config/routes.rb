@@ -7,7 +7,9 @@ ActressApp::Application.routes.draw do
   resources :photos
 
   get '/actress/:id' => 'actresses#show', as: :actress
-  resources :actresses , except: [:show]
+  patch '/actress/:id' => 'actresses#update'
+  put '/actress/:id' => 'actresses#update'
+  resources :actresses , except: [:show,:update]
 
   #top page
   root :to=>"actresses#index_photos"
