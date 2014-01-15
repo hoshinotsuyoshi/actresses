@@ -1,5 +1,6 @@
 # coding:utf-8
 class TagsController < ApplicationController
+  before_action :authenticate, only: [:index,:new,:edit,:create,:update,:destroy]
   before_action :set_tag, only: [:edit, :update, :destroy]
 
   def show
@@ -13,7 +14,6 @@ class TagsController < ApplicationController
 
   # GET /tags
   def index
-    render :status => :forbidden, :text => "Forbidden fruit" if Rails.env.production?
     @tags = Tag.all
   end
 

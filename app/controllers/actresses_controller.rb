@@ -1,12 +1,12 @@
 # coding: utf-8
 class ActressesController < ApplicationController
+  before_action :authenticate, only: [:index,:new,:edit,:create,:update,:destroy]
   before_action :set_tags, only: [:index_photos,:show]
   before_action :set_actresses, only: [:index_photos,:show]
   before_action :set_actress, only: [:show,:edit, :update, :destroy]
 
   # GET /actresses
   def index
-    render :status => :forbidden, :text => "Forbidden fruit" if Rails.env.production?
     @actresses = Actress.all
   end
 

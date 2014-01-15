@@ -1,6 +1,8 @@
 # coding: utf-8
 class PhotosController < ApplicationController
+  before_action :authenticate, only: [:index,:new,:edit,:create,:update,:destroy]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+
 
   def photo
     @tags      = Tag.all
@@ -17,7 +19,6 @@ class PhotosController < ApplicationController
 
   # GET /photos
   def index
-    render :status => :forbidden, :text => "Forbidden fruit" if Rails.env.production?
     @photos = Photo.all
   end
 

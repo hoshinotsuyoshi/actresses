@@ -1,4 +1,5 @@
 class RegistController < ApplicationController
+  before_action :authenticate
   def photo
     opt = [params[:actress_name],params[:path],params[:release_date]]
     hash = {result: Regist.perform(opt)}

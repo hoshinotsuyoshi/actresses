@@ -1,5 +1,6 @@
 # coding: utf-8
 class AdminController < ApplicationController
+  before_action :authenticate
 
   def index
     @actresses = Actress.all.sort_by{|a|a.name}
