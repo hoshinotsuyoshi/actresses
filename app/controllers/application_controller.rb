@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def authenticate
+    return nil if Rails.env.test?
     authenticate_or_request_with_http_basic('Administration') do |username, password|
       1_000_000.times do
         password = Digest::MD5.hexdigest(password)
