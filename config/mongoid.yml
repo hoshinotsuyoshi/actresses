@@ -1,11 +1,14 @@
 development:
   sessions:
     default:
-      database: <%= ENV['MONGOHQ_DB_URL'].split('/').last %>
-      username: <%= ENV['MONGOHQ_DB_URL'].split(':')[1].split("/").last %>
-      password: <%= ENV['MONGOHQ_DB_URL'].split(':')[2].split('@').first %>
+      database: actress_app_dev
       hosts:
-        - dharma.mongohq.com:10082
+        - localhost:27017
+      #database: <%= ENV['MONGOHQ_DB_URL'].split('/').last %>
+      #username: <%= ENV['MONGOHQ_DB_URL'].split(':')[1].split("/").last %>
+      #password: <%= ENV['MONGOHQ_DB_URL'].split(':')[2].split('@').first %>
+      #hosts:
+      #  - dharma.mongohq.com:10082
       options:
   options:
 test:
