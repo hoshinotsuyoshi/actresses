@@ -4,6 +4,7 @@ class TumblrUser
   field :host, type: String
   field :consumer_key, type: String
   field :consumer_secret, type: String
+  field :memo
   field :oauth_token, type: String
   field :oauth_token_secret, type: String
   field :spend, type: Integer, default: 0

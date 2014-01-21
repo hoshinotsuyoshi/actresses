@@ -70,7 +70,7 @@ class TumblrUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tumblr_user_params
-      params.require(:tumblr_user).permit(:host, :consumer_key, :consumer_secret, :oauth_token, :oauth_token_secret, :spend, :last_spend)
+      params.require(:tumblr_user).permit(:host, :consumer_key, :consumer_secret, :oauth_token, :oauth_token_secret, :spend, :last_spend, :memo)
     end
 
 end

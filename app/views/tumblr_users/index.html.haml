@@ -4,9 +4,10 @@
   %tr
     %th Host
     %th Consumer key
-    %th Consumer secret
-    %th Oauth token
-    %th Oauth token secret
+    -#%th Consumer secret
+    %th Memo
+    -#%th Oauth token
+    -#%th Oauth token secret
     %th Spend
     %th Last spend
     %th
@@ -17,9 +18,12 @@
     %tr
       %td= tumblr_user.host
       %td= tumblr_user.consumer_key
-      %td= tumblr_user.consumer_secret
-      %td= tumblr_user.oauth_token
-      %td= tumblr_user.oauth_token_secret
+      -#%td= tumblr_user.consumer_secret
+      %td
+        %p
+          = raw(tumblr_user.memo.to_s.split(/\r/).join("<br>"))
+      -#%td= tumblr_user.oauth_token
+      -#%td= tumblr_user.oauth_token_secret
       %td= tumblr_user.spend
       %td= tumblr_user.last_spend
       %td= link_to 'Show', tumblr_user
