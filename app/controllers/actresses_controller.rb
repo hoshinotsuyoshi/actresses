@@ -2,7 +2,7 @@
 class ActressesController < ApplicationController
   before_action :authenticate, only: [:index,:new,:edit,:create,:update,:destroy]
   before_action :set_tags, only: [:index_photos,:show]
-  before_action :set_actresses, only: [:index_photos,:show]
+  before_action :set_actresses, only: [:index_photos,:show, :parts_random]
   before_action :set_actress, only: [:show,:edit, :update, :destroy]
 
   # GET /actresses
@@ -11,6 +11,10 @@ class ActressesController < ApplicationController
   end
 
   def index_photos
+  end
+
+  def parts_random
+    render :parts_random, layout: false
   end
 
   def show
