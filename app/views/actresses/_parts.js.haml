@@ -9,5 +9,4 @@
             = link_to actress_photo_url(actress,photo),target: :blank do
               %img{:src=>photo.url,:alt=>"#{actress.name}",:width=>"100%"}
             = link_to actress_url(actress),target: :blank do
-              = "#{actress.name}"
-        %p
+              = actress.name

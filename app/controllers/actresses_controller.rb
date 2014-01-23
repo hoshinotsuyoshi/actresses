@@ -14,7 +14,10 @@ class ActressesController < ApplicationController
   end
 
   def parts_random
-    render :parts_random, layout: false
+    respond_to do |format|
+      format.js { render }
+    end
+    #render :parts_random, layout: false
   end
 
   def show
