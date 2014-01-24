@@ -4,11 +4,6 @@ development:
       database: actress_app_dev
       hosts:
         - localhost:27017
-      #database: <%= ENV['MONGOHQ_DB_URL'].split('/').last %>
-      #username: <%= ENV['MONGOHQ_DB_URL'].split(':')[1].split("/").last %>
-      #password: <%= ENV['MONGOHQ_DB_URL'].split(':')[2].split('@').first %>
-      #hosts:
-      #  - dharma.mongohq.com:10082
       options:
   options:
 test:
@@ -21,12 +16,4 @@ test:
 production:
   sessions:
     default:
-      database: <%= ENV['MONGOHQ_DB_URL'].split('/').last %>
-      username: <%= ENV['MONGOHQ_DB_URL'].split(':')[1].split("/").last %>
-      password: <%= ENV['MONGOHQ_DB_URL'].split(':')[2].split('@').first %>
-      hosts:
-        - dharma.mongohq.com:10082
-      options:
-  options:
-    use_utc: false
-    use_activesupport_time_zone: true
+      uri: <%= ENV['MONGOHQ_DB_URL'] %>
