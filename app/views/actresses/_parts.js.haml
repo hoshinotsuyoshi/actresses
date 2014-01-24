@@ -1,12 +1,13 @@
 - @actresses.sort_by{rand}.each_with_index do |actress,index|
-  - if index < 10
+  - if index < 15
     %span
       = link_to actress_url(actress),target: :blank do
         = "#{actress.name} #{actress.photos.size}枚"
       - actress.photos.sort_by{rand}.each_with_index do |photo,index2|
-        - if index2 < 10
+        - if index2 < 2
           %span
             = link_to actress_photo_url(actress,photo),target: :blank do
               %img{:src=>photo.url,:alt=>"#{actress.name}",:width=>"100%"}
             = link_to actress_url(actress),target: :blank do
               = actress.name
+              %br
