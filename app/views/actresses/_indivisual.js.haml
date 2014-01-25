@@ -1,0 +1,15 @@
+- actress = Actress.where(name: params[:actress]).first
+%div
+  - actress.photos.sort_by{rand}.each_with_index do |photo,index2|
+    - if index2 < 4
+      %span
+        = link_to actress_photo_url(actress,photo),target: :blank do
+          %img{:src=>photo.url,:alt=>"#{actress.name}",:width=>"100%"}
+        %br
+        = link_to actress_url(actress),target: :blank do
+          = "#{actress.name} #{actress.photos.size}枚"
+        %br
+%h2
+  %u
+    = link_to actress_url(actress),target: :blank do
+      = "#{actress.name} 画像#{actress.photos.size}枚"

@@ -17,7 +17,12 @@ class ActressesController < ApplicationController
     respond_to do |format|
       format.js { render }
     end
-    #render :parts_random, layout: false
+  end
+
+  def parts_indivisual
+    respond_to do |format|
+      format.js { render }
+    end
   end
 
   def show

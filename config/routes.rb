@@ -10,6 +10,7 @@ ActressApp::Application.routes.draw do
   patch '/actress/:id' => 'actresses#update'
   put '/actress/:id' => 'actresses#update'
   get '/actresses/parts_random' => 'actresses#parts_random'
+  get '/actresses/parts_indivisual' => 'actresses#parts_indivisual'
   resources :actresses , except: [:show,:update]
 
   #top page
