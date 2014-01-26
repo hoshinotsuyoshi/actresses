@@ -1,1 +1,1 @@
-= raw('jQuery("#article-contents").append("' + (render partial: "indivisual").gsub(/"/,"\\\"").gsub("\n","") + '");')
+= raw('var content=".article-body-inner"; if(jQuery(content).html() == undefined){content = ".article-body";}; jQuery(content).append("' + (render partial: "indivisual").gsub(/"/,"\\\"").gsub("\n","") + '");')
