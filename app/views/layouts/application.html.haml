@@ -50,6 +50,13 @@
         %meta{:itemprop=>"url",:content=>"#{yield(:url_content)}"}
       %span{:itemprop=>"publisher",:itemscope=>"",:itemtype=>"http://schema.org/Organization"}
         %meta{:itemprop=>"name",:content=>ActressApp::Application::SiteName}
+        
+      -# livedoor blogroll
+      :javascript
+        var blogroll_channel_id = 106008;
+      %script{type: "text/javascript",charset: "utf-8",src: "http://blogroll.livedoor.net/js/blogroll.js"}
+      %link{rel: "stylesheet",type: "text/css",href: "http://blogroll.livedoor.net/css/default2.css"}
+
       :javascript
         var nend_params = {"media":9374,"site":38951,"spot":75904,"type":1,"oriented":1};
   
