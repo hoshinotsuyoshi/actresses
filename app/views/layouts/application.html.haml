@@ -61,6 +61,30 @@
         var nend_params = {"media":9374,"site":38951,"spot":75904,"type":1,"oriented":1};
   
       %script{:type=>"text/javascript",:src=>"http://js1.nend.net/js/nendAdLoader.js"}
+
+      -# imobile
+      <!-- i-mobile for PC client script -->
+      .span12{style: "text-align: center;"}
+        - if not sp?
+          :javascript
+            imobile_pid = "26252"; 
+            imobile_asid = "183763"; 
+            imobile_width = 728; 
+            imobile_height = 90;
+          %script{type:"text/javascript",src:"http://spdeliver.i-mobile.co.jp/script/ads.js?20101001"}
+
+      -# imobile
+      <!-- i-mobile for SmartPhone client script -->
+      .span12{style: "text-align: center;"}
+        :javascript
+          imobile_tag_ver = "0.2"; 
+          imobile_pid = "26252"; 
+          imobile_asid = "183765"; 
+          imobile_type = "inline";
+        %script{type:"text/javascript",src:"http://spad.i-mobile.co.jp/script/adssp.js?20110215"}
+        
+
+
       /
         Javascripts
         \==================================================
