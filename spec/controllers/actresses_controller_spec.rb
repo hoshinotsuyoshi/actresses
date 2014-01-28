@@ -28,6 +28,8 @@ describe ActressesController do
   # adjust the attributes here as well.
   let(:valid_attributes) { { "name" => "MyString" } }
 
+  let(:display_valid_attributes) { { "name" => "MyString", "display" => "1", "release_date" => "1900-01-01"} }
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ActressesController. Be sure to keep this updated too.
@@ -38,6 +40,45 @@ describe ActressesController do
       actress = Actress.create! valid_attributes
       get :index, {}, valid_session
       assigns(:actresses).should eq([actress])
+    end
+  end
+
+  describe "GET index_photos" do
+    it "assigns all actresses as @actresses" do
+      actress = Actress.create! display_valid_attributes
+      get :index_photos, {}, valid_session
+      assigns(:actresses).should eq([actress])
+    end
+  end
+
+  context 'performance' do
+    #FIXME
+    #this is performance test
+    before do
+      require 'benchmark'
+      @actresses = []
+      @display_valid_attributes_x_names = ->(name){ { "name" => "#{name}", "display" => "1", "release_date" => "1900-01-01"} }
+      @display_valid_attributes_x_photo_big_url = ->(big_url,actress){ { "big_url" => "#{big_url}", "actress" => actress} }
+      300.times do |name|
+        actress = Actress.create! @display_valid_attributes_x_names.call(name)
+        100.times do |photo|
+          Photo.create! @display_valid_attributes_x_photo_big_url.call(photo,actress)
+        end
+      end
+    end
+
+    it 'takes time' do
+      Benchmark.realtime{
+        # real_running -- begin
+        all_photos = []
+        #Actress.all.each{|actress| all_photos << actress.photos.map(&:big_url)} #=> 3.2sec.
+        #Actress.all.each{|actress,i| all_photos << actress.photos.first.big_url} #=> 1.1sec.
+        #Actress.all.each_with_index{|actress,i| all_photos << actress.photos.first.big_url; next if i > 3} #=> 1.1sec.
+        #Actress.all.sample(4).each{|actress,i| all_photos << actress.photos.map(&:big_url)} #=> 0.7sec.!
+        Actress.all.sample(60).each{|actress,i| all_photos << actress.photos.first.big_url} #=> 18sec.!
+        # real_running -- end
+        get :index_photos
+      }.should < 0.001
     end
   end
 
