@@ -11,9 +11,11 @@ class Actress
   has_many :photos 
   has_and_belongs_to_many :tags
 
+
   # pick_up
   field :pick_up , type: Integer, default: 0
   scope :picked , ->{where(pick_up: 1)}
+  index({ pick_up: 1 }, { name: "pick_up_index" })
 
   scope :display, ->{where(display: "1")}
 

@@ -12,6 +12,8 @@ class Photo
   scope :released   , ->{where(:release_date.lte => Time.zone.now)}
   scope :unreleased , ->{where(:release_date.gt  => Time.zone.now)}
 
+  index({ point: 1 }, { name: "point_index" })
+
   # 5days latest
   scope :latest , ->{between(release_date: ((Time.now-60*60*24*5)..(Time.now)))}
 
