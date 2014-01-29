@@ -9,16 +9,11 @@ class Photo
   field :release_date, type: Time
   field :point, type: Integer, :default => 0
 
-  scope :released   ,where(:release_date.lte => Time.zone.now)
-  scope :unreleased ,where(:release_date.gt  => Time.zone.now)
+  scope :released   , ->{where(:release_date.lte => Time.zone.now)}
+  scope :unreleased , ->{where(:release_date.gt  => Time.zone.now)}
 
   # 5days latest
-  #worker(resque-web、rails3)だとbetween が使えない
-  if defined?(::Rails) 
-    if ::Rails.version == "4.0.0"
-      scope :latest ,between(release_date: ((Time.now-60*60*24*5)..(Time.now)))
-    end
-  end
+  scope :latest , ->{between(release_date: ((Time.now-60*60*24*5)..(Time.now)))}
 
   def index
     actress.photos_sort_by_points.index(self)
