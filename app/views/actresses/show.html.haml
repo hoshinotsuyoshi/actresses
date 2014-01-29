@@ -29,8 +29,9 @@
 -# photos
 .container-fluid
   .row-fluid
+    - photos = @actress.photos_sort_by_points
     - (params[:page].to_i*8).upto((params[:page].to_i*8) +8 - 1) do |i|
-      - if photo = @actress.photos_sort_by_points[i]
+      - if photo = photos[i]
         .span5
           = link_to actress_photo_path(@actress,photo),target: :blank do
             - if i == 0
