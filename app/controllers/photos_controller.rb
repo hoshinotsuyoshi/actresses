@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
   def photo
     @tags      = Tag.all
     @actresses = Actress.display.released.to_a
+    @picked    = Actress.picked
     @actress   = Actress.find(params[:a_id])
     @photo     = Photo.find(params[:p_id])
     render status: :not_found, file: "#{Rails.root}/public/404.html" and return if !@photo

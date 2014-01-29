@@ -3,16 +3,18 @@ require 'spec_helper'
 
 describe "actresses/index_photos" do
   before(:each) do
-    assign(:actresses, [
+    assign(:picked, [
       stub_model(Actress,
         :name => "Name",
         :text => "Text",
-        :display => false
+        :pick_up => 1,
+        :display => 1
       ),
       stub_model(Actress,
         :name => "Name",
         :text => "Text",
-        :display => false
+        :pick_up => 1,
+        :display => 1
       )
     ])
   end

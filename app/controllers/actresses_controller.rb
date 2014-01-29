@@ -83,6 +83,7 @@ class ActressesController < ApplicationController
 
     def set_actresses
       @actresses = Actress.display.released.to_a
+      @picked = Actress.all.picked
     end
 
     def set_tags
@@ -90,6 +91,6 @@ class ActressesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def actress_params
-      params.require(:actress).permit(:name, :text, :display)
+      params.require(:actress).permit(:name, :text, :display, :pick_up)
     end
 end

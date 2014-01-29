@@ -28,11 +28,12 @@
 - @actresses = @actresses.sort_by{rand} if @actresses
 -# トップページなら全部、それ以外なら6個
 - @lis = request.path=="/" ? 6  : 2
-- @uls = request.path=="/" ? @actresses.size / (params["full"] ? 6 : 18)  : 1
+-# @uls = request.path=="/" ? @actresses.size / (params["full"] ? 6 : 18)  : 1
+- @uls = 1
 - @uls.times do |i|
   %ul.thumbnails
     - (i*@lis).upto(i*@lis+@lis-1) do |n|
-      - actress = @actresses[n] if @actresses
+      - actress = @picked[n] if @picked
       - if actress
         %li.span2
           = link_to actress,class: :thumnail do
