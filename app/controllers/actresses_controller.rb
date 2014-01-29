@@ -1,5 +1,6 @@
 # coding: utf-8
 class ActressesController < ApplicationController
+  protect_from_forgery except: [:parts_random, :parts_indivisual]
   before_action :authenticate, only: [:index,:new,:edit,:create,:update,:destroy]
   before_action :set_tags, only: [:index_photos,:show]
   before_action :set_actresses, only: [:index_photos,:show, :parts_random]
