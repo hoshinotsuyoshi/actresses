@@ -75,7 +75,8 @@ gem 'haml-rails'
 
 # use bootstrap
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
+#gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
+gem 'twbs_sass_rails'
 
 # use tumblr
 gem 'tumblife'
